@@ -1,0 +1,26 @@
+{
+  "name": "typescript-benchmark",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/build/start.js",
+    "build": "gulp clean-build && gulp",
+    "reinstall": "npm cache clean && gulp clean-modules && npm install"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^3.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.5.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-tslint": "^8.1.2",
+    "gulp-typescript": "^3.2.2",
+    "gulp-uglify": "^3.0.0",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
