@@ -1,14 +1,33 @@
-require './src/UserInfo.rb'
+require './src/model/Table.rb'
+require './src/provider/MaxValueAnalysis.rb'
+require './src/provider/MinValueAnalysis.rb'
+require './src/provider/MeanAnalysis.rb'
 
-antes = Time.now
+fileName = "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/outputs/inputclass/inputclass_1e+06.csv"
+identificador = "ruby_1_inputclass_1e+06"
 
-list = Array.new
-(0..1000000).each do |index|
-    user = "user#{index}"
-    password = "password#{index}"
-    list.push(UserInfo.new(user, password))
-end
+leitura_inicio = Time.now
+table = Table.new(fileName)
+leitura_fim = Time.now
 
-depois = Time.now
 
-p (depois - antes)* 1000.0
+list = table.userInfoList
+
+maxValue = MaxValueAnalysis.new
+minValue = MinValueAnalysis.new
+meanValue = MeanAnalysis.new
+
+analise_inicio = Time.now
+
+max = maxValue.analysis(list)
+min = minValue.analysis(list)
+mean = meanValue.analysis(list)
+
+analise_fim = Time.now
+
+p("Identificador: #{identificador}")
+p("Tempo de leitura (ms): #{(leitura_fim - leitura_inicio)*1000.0}")
+p("Tempo de análise (ms): #{(analise_fim - analise_inicio)*1000.0}")
+p("Max: #{max}")
+p("Min: #{min}")
+p("Mean: #{mean}")

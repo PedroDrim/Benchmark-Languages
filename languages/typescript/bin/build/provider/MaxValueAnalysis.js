@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var MaxValueAnalysis=function(){function e(){}return e.prototype.analysis=function(e){var t=Number.MIN_VALUE;return e.forEach(function(e){t<e.getCredit()&&(t=e.getCredit())}),t},e}();exports.MaxValueAnalysis=MaxValueAnalysis;

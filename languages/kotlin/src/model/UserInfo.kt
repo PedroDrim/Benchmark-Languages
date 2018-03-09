@@ -1,6 +1,6 @@
 package box
 
-class UserInfo(var user: String, private var _password: String){
+class UserInfo(var user: String, private var _password: String, var credit: Double){
 
     // Get e Set de user é gerado pelo construtor
     // Set de password é gerado pelo construtor, o get é gerado manualmente
