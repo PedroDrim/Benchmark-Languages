@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var MeanAnalysis=function(){function e(){}return e.prototype.analysis=function(e){var n=0;return e.forEach(function(e){return n+=e.getCredit()}),n/e.length},e}();exports.MeanAnalysis=MeanAnalysis;
