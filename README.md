@@ -26,4 +26,4 @@ Esta seção é a mais divertida (na minha opinião), pois nela descrevo os expe
 
 | Nome (com link) | Objetivo | Técnicas utilizadas para análise |
 |-----------------|----------|----------------------------------|
-| [simpleclass](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/simpleclass/simpleclass.md) | Estudar a criação de classes simples | Barplot |
+| [simpleclass](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/simpleclass/simpleclass.md) | Estudar a criação de classes simples | Análise por média e exibição por Barplot |

@@ -77,15 +77,17 @@ Para a análise desses dados foi-se gerado uma tabela contendo a média aritmét
 |inputclass_1e+05|typescript|130.8|10.5|454.21|0|80.0389994000004|
 |inputclass_1e+06|typescript|1374.44444444444|213.888888888889|488.21|0|79.8119725099996|
 
-Tabela esta que foi convertida em um gráfico do tipo **BarPlot** por meio da biblioteca ggplot2 do R.
+O script utilizado para a análise pode ser visualizado [aqui](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/inputclass/inputclass_graph.r).
 
-![BarPlot InputClass 1000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/benchmark_13+03_inputclass.png)
+Tabela esta que foi convertida em um gráfico do tipo **BarPlot**, com base no tamanho das tabelas utilizadas nos experimentos, por meio da biblioteca ggplot2 do R.
 
-![BarPlot InputClass 10000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/benchmark_13+03_inputclass.png)
+![BarPlot InputClass 1000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/output/benchmark_1e%2B03_inputclass.png)
 
-![BarPlot InputClass 100000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/benchmark_13+03_inputclass.png)
+![BarPlot InputClass 10000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/benchmark_1e%2B04_inputclass.png)
 
-![BarPlot InputClass 1000000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/benchmark_13+03_inputclass.png)
+![BarPlot InputClass 100000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/benchmark_1e%2B05_inputclass.png)
+
+![BarPlot InputClass 1000000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/benchmark_1e%2B06_inputclass.png)
 
 ### Premissas
 
