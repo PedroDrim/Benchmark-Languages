@@ -83,11 +83,11 @@ Tabela esta que foi convertida em um gráfico do tipo **BarPlot**, com base no t
 
 ![BarPlot InputClass 1000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/output/benchmark_1e%2B03_inputclass.png)
 
-![BarPlot InputClass 10000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/benchmark_1e%2B04_inputclass.png)
+![BarPlot InputClass 10000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/output/benchmark_1e%2B04_inputclass.png)
 
-![BarPlot InputClass 100000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/benchmark_1e%2B05_inputclass.png)
+![BarPlot InputClass 100000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/output/benchmark_1e%2B05_inputclass.png)
 
-![BarPlot InputClass 1000000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/benchmark_1e%2B06_inputclass.png)
+![BarPlot InputClass 1000000 elementos](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/inputclass/output/benchmark_1e%2B06_inputclass.png)
 
 ### Premissas
 
