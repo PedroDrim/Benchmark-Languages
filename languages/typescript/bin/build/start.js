@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});for(var UserInfo_1=require("./model/UserInfo"),antes=(new Date).getTime(),list=new Array,index=0;index<1e6;index++){var user="user"+index,password="password"+index;list.push(new UserInfo_1.UserInfo(user,password))}var depois=(new Date).getTime();console.log(depois-antes);

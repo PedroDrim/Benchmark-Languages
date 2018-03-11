@@ -3,7 +3,7 @@ import model.UserInfo
 
 import scala.collection.mutable.ListBuffer
 
-object  main extends App {
+object main extends App {
 
   // Inicia uma lista modificavel
   var list = new ListBuffer[UserInfo]()
