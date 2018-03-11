@@ -29,7 +29,7 @@ Após a execução dos códigos, os seguintes resultados forma obtidos:
 Para a análise desses dados foi-se gerado uma média aritmética para cada linguagem, e seu resultado foi convertido em um gráfico do tipo **BarPlot** por meio da biblioteca ggplot2 do R.
 
 
-O script utilizado para a análise pode ser visualizado [aqui]().
+O script utilizado para a análise pode ser visualizado [aqui](https://github.com/PedroDrim/Benchmark-Languages/blob/simpleclass/outputs/simpleclass/simpleclass_graph.r).
 
 ![BarPlot SimpleClass](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/simpleclass/benchmark_simpleclass.png)
 
