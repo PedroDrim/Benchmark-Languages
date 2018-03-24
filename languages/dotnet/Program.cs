@@ -1,53 +1,60 @@
-﻿// Importando bibliotecas
-using System;
+﻿using System;
+using System.IO;
 using System.Collections.Generic;
-using inputclass.src.model;
-using inputclass.src.provider;
+using experimento.src.model;
+using experimento.src.provider;
 
-// Definindo "package" da aplicação
-namespace inputclass {
-    // Criando uma classe inicial "Program"
+namespace experimento {
+
     public class Program {
-        // Método primário de execução
-        // args: String[] -> lista de parametros iniciais
+
         static void Main(string[] args) {
+
+            Dictionary<string, string> configuration = getConfiguration("./app.config");
             
-            string fileName = "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/outputs/inputclass/inputclass_1e+06.csv";
-            string identificador = "csharp_10_inputclass_1e+06";
+            string input = configuration["input"];
+            string output = configuration["output"];
 
-            // Obtendo o tempo inicial de leitura em milissegundos
-            long leitura_inicio = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            BenchmarkOutput benchmark = new BenchmarkMeasure();
 
-            // Convertendo arquivo em lista de "UserInfo"
-            Table table = new Table(fileName);
+            //==================================================
+            // Leitura dos dados
+            benchmark.start("READ");
+            DataReader tableReader = new TableReader(input);
+            benchmark.end("READ");
+            //==================================================
 
-            // Obtendo o tempo final de leitura em milissegundos
-            long leitura_fim = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            List<UserInfo> list = tableReader.read();
+            TableAnalysis<UserInfo> searchAnalysis = new SearchAnalysis();
+            TableAnalysis<double[]> rangeValueAnalysis = new RangeValueAnalysis();
+            TableAnalysis<double> meanAnalysis = new MeanAnalysis();
 
-            List<UserInfo> list = table.userInfoList;
+            //==================================================
+            // Analise dos dados
+            benchmark.start("ANALYSE");
+            double[] range = rangeValueAnalysis.analysis(list);
+            double mean = meanAnalysis.analysis(list);
+            benchmark.end("ANALYSE");
+            //==================================================
 
-            SimpleTableAnalysis maxValue = new MaxValueAnalysis();
-            SimpleTableAnalysis minValue = new MinValueAnalysis();
-            SimpleTableAnalysis meanValue = new MeanAnalysis();
+            benchmark.export(output, TimeFormat.MILISSEGUNDOS);
+        }
 
-            // Obtendo o tempo inicial de analise em milissegundos
-            long analise_inicio = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        static Dictionary<string, string> getConfiguration(string fileName) {
+            StreamReader file = new StreamReader(fileName);
 
-            // Realizando analises
-            double max = maxValue.analysis(list);
-            double min = minValue.analysis(list);
-            double mean = meanValue.analysis(list);
+            Dictionary<string, string> appConfig = new Dictionary<string, string>();
+            
+            string line;
+            while((line = file.ReadLine()) != null) {  
+                string[] values = line.Split(":");
+                string key = values[0].Trim();
+                string val = values[1].Trim();
+                appConfig.Add(key, val);
+            }  
 
-            // Obtendo o tempo final de analise em milissegundos
-            long analise_fim = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-
-            // Dados de saida
-            Console.WriteLine("Identificador: " + identificador);
-            Console.WriteLine("Tempo de leitura (ms): " + (leitura_fim - leitura_inicio) );
-            Console.WriteLine("Tempo de análise (ms): " + (analise_fim - analise_inicio) );
-            Console.WriteLine("Max: " + max);
-            Console.WriteLine("Min: " + min);
-            Console.WriteLine("Mean: " + mean);
+            file.Close();  
+            return appConfig;
         }
     }
 }

@@ -1,45 +1,50 @@
-import model.SimpleTableAnalysis
-import model.Table
-import provider.MaxValueAnalysis
-import provider.MeanAnalysis
-import provider.MinValueAnalysis
+import box.UserInfo
+import model.BenchmarkOutput
+import model.TableAnalysis
+import model.TimeFormat
+import provider.*
+import java.util.*
+import java.io.FileInputStream
 
 fun main(args: Array<String>) {
 
-    val fileName ="/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/outputs/inputclass/inputclass_1e+06.csv"
-    val identificador = "kotlin_10_inputclass_1e+06"
+    val configFile = "config.properties"
+    val properties = loadProperties(configFile)
 
-    // Obtendo o tempo inicial de leitura em milissegundos
-    val leitura_inicio: Long = System.currentTimeMillis()
+    val input = properties.getProperty("INPUT_FILENAME")
+    val output = properties.getProperty("OUTPUT_FILENAME")
 
-    // Convertendo arquivo em lista de "UserInfo"
-    val table = Table(fileName)
+    var benchmark: BenchmarkOutput = BenchmarkMeasure()
 
-    // Obtendo o tempo final de leitura em milissegundos
-    val leitura_fim: Long = System.currentTimeMillis()
+    //==================================================
+    // Leitura dos dados
+    benchmark.start("READ")
+    val table = TableReader(input)
+    benchmark.end("READ")
+    //==================================================
 
-    val list = table.userInfoList
+    val list = table.read()
+    val searchAnalysis: TableAnalysis<UserInfo> = SearchAnalysis()
+    val rangeValueAnalysis: TableAnalysis<Array<Double>> = RangeValueAnalysis()
+    val meanAnalysis: TableAnalysis<Double> = MeanAnalysis()
 
-    val maxAnalysis: SimpleTableAnalysis = MaxValueAnalysis()
-    val minAnalysis: SimpleTableAnalysis = MinValueAnalysis()
-    val meanAnalysis: SimpleTableAnalysis = MeanAnalysis()
 
-    // Obtendo o tempo inicial de analise em milissegundos
-    val analise_inicio: Long = System.currentTimeMillis()
-
-    // Realizando analises
-    val max = maxAnalysis.analysis(list)
-    val min = minAnalysis.analysis(list)
+    //==================================================
+    // Analise dos dados
+    benchmark.start("ANALYSE")
+    val searchValue = searchAnalysis.analysis(list)
+    val rangeValue = rangeValueAnalysis.analysis(list)
     val mean = meanAnalysis.analysis(list)
+    benchmark.end("ANALYSE")
+    //==================================================
 
-    // Obtendo o tempo final de analise em milissegundos
-    val analise_fim: Long = System.currentTimeMillis()
+    benchmark.export(output, TimeFormat.MILISSEGUNDOS)
+}
 
-    // Dados de saida
-    println("\nIdentificador: " + identificador)
-    println("Tempo de leitura (ms): " + (leitura_fim - leitura_inicio))
-    println("Tempo de análise (ms): " + (analise_fim - analise_inicio))
-    println("Max: " + max)
-    println("Min: " + min)
-    println("Mean: " + mean)
+fun loadProperties(configFile: String): Properties {
+    val input = FileInputStream(configFile)
+    val properties = Properties()
+    properties.load(input)
+
+    return properties
 }

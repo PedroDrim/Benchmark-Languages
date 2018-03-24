@@ -1,14 +1,18 @@
-// Importando bibliotecas
-using inputclass.src.model;
+using experimento.src.model;
 using System.Collections.Generic;
 
-// Definindo "package" da aplicação
-namespace inputclass.src.provider {
-    // Criando uma classe "MeanAnalysis" que implementa a interface "SimpleTableAnalysis"
-    public class MeanAnalysis : SimpleTableAnalysis {
-        // Método de interface, responsável por realizar a análise na lista de "UserInfo"
-        // list: List<UserInfo> -> Lista de "UserInfo"
-        // RETURN: double -> média dos valores da lista
+namespace experimento.src.provider {
+
+    /// <summary>
+    ///  Classe para analise de dados, obtem a media dos valores dos creditos dos usuarios
+    /// </summary>
+    public class MeanAnalysis : TableAnalysis<double> {
+        
+        /// <summary>
+        /// Realiza a analise de media dos dados
+        /// </summary>
+        /// <param name="list">Lista de dados a ser analisada</param>
+        /// <returns>Media dos valores dos creditos</returns>
         public double analysis(List<UserInfo> list) {
 
             double sum = 0;

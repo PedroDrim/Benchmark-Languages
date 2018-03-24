@@ -1,16 +1,24 @@
 package box
 
+/**
+ * Informacoes do usuario
+ * @param user Nome do usuario
+ * @param password Senha do usuario
+ * @param credit Quantidade de creditos do usuario
+ */
 class UserInfo(var user: String, private var _password: String, var credit: Double){
 
-    // Get e Set de user é gerado pelo construtor
-    // Set de password é gerado pelo construtor, o get é gerado manualmente
+    /**
+     * Obtem a senha cryptografada do usuario
+     * @return Senha cryptografada do usuario
+     */
     var password: String = this._password
         get() = this.cryptPassword(this._password)
 
     /**
-     * Método privado para encriptar senhas
-     * password: String -> senha a ser encriptada
-     * RETURN: String -> nova senha
+     * Metodo privado para encriptar a senha do usuario
+     * @param password Senha a ser encriptada
+     * @return Nova senha encriptada
      */
     private fun cryptPassword(password: String): String {
         return "HASH" + password.reversed() + "000"

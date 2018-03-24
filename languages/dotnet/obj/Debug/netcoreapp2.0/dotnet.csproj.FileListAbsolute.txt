@@ -1,0 +1,11 @@
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/bin/Debug/netcoreapp2.0/dotnet.deps.json
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/bin/Debug/netcoreapp2.0/dotnet.runtimeconfig.json
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/bin/Debug/netcoreapp2.0/dotnet.runtimeconfig.dev.json
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/bin/Debug/netcoreapp2.0/dotnet.dll
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/bin/Debug/netcoreapp2.0/dotnet.pdb
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/obj/Debug/netcoreapp2.0/dotnet.csproj.CoreCompileInputs.cache
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/obj/Debug/netcoreapp2.0/dotnet.AssemblyInfoInputs.cache
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/obj/Debug/netcoreapp2.0/dotnet.AssemblyInfo.cs
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/obj/Debug/netcoreapp2.0/dotnet.dll
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/obj/Debug/netcoreapp2.0/dotnet.pdb
+/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/bin/Debug/netcoreapp2.0/dotnet.dll.config

@@ -1,23 +1,40 @@
-// Definindo "package" da aplicação
-namespace inputclass.src.model {
-    // Criando uma classe "UserInfo"
+namespace experimento.src.model {
+
+    /// <summary>
+    /// Informacoes do usuario
+    /// </summary>
     public class UserInfo {
-        // Nome do usuario com métodos getter e setter
-        private string user {get; set}
-        // Variável privada para senha da conta
+        
         private string _password;
-        // credito da conta com métodos getter e setter
-        private double credit {get; set}
-        // Construtor da classe
-        // user: string -> nome do usuário
-        // password: string -> senha da conta
-        // credit: double -> creditos da conta
+
+        /// <summary>
+        /// Nome do usuario
+        /// </summary>
+        /// <returns>Nome od usuario</returns>
+        public string user {get; set;}
+        
+        /// <summary>
+        /// Quantidade de creditos do usuario
+        /// </summary>
+        /// <returns>Quantidade de creditos do usuario</returns>
+        public double credit {get; set;}
+
+        /// <summary>
+        /// Construtor publico da classe
+        /// </summary>
+        /// <param name="user">Nome do usuario</param>
+        /// <param name="password">Senha do usuario</param>
+        /// <param name="credit">Quantidade de creditos do usuario</param>
         public UserInfo(string user, string password, double credit) {
             this.user = user;
             this._password = password;
             this.credit = credit;
         }
-        // Metodos getter (customizado) e setter da senha da conta
+
+        /// <summary>
+        /// Senha do usuario
+        /// </summary>
+        /// <returns>Senha do usuario criptografada</returns>
         public string password {
             get {
                 return cryptPassword(this._password);
@@ -27,9 +44,12 @@ namespace inputclass.src.model {
                 this._password = value;
             }
         }
-        // Método privado para encriptar senhas
-        // password: string -> senha a ser encriptada
-        // RETURN: string -> nova senha
+
+        /// <summary>
+        /// Metodo privado para encriptar a senha do usuario
+        /// </summary>
+        /// <param name="password">Senha a ser encriptada</param>
+        /// <returns>Nova senha encriptada</returns>
         private string cryptPassword(string password){
             string[] cryptArray = password.Split("");
             string[] reverseArray = new string[cryptArray.Length];

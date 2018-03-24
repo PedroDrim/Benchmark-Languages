@@ -1,49 +1,69 @@
-import model.SimpleTableAnalysis;
-import model.Table;
+import model.BenchmarkOutput;
+import model.TableAnalysis;
+import model.TimeFormat;
+import provider.*;
 import model.UserInfo;
-import provider.MaxValueAnalysis;
-import provider.MeanAnalysis;
-import provider.MinValueAnalysis;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Properties;
 
 public class start {
 
     public static void main(String args[]) throws IOException {
 
-        String fileName = "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/outputs/inputclass/inputclass_1e+06.csv";
-        read(fileName, "java_10_inputclass_1e+06");
+        String configFile = "config.properties";
+        Properties properties = loadProperties(configFile);
 
+        String input = properties.getProperty("INPUT_FILENAME");
+        String output = properties.getProperty("OUTPUT_FILENAME");
+
+        BenchmarkOutput benchmark = new BenchmarkMeasure();
+
+        TableAnalysis summaryAnalysis = new SummaryAnalysis();
+        TableAnalysis bubbleSortAnalysis = new BubbleSortAnalysis();
+        TableAnalysis quickSortAnalysis = new QuickSortAnalysis();
+        TableAnalysis languageSortAnalysis = new LanguageSortAnalysis();
+
+        //==================================================
+        // Leitura dos dados
+        benchmark.start("Read");
+        TableReader tableReader = new TableReader(input);
+        List<UserInfo> list = tableReader.read();
+        benchmark.end("Read");
+        //==================================================
+        // Analise dos dados (Summary)
+        benchmark.start("SummaryAnalyse");
+        double[] summary = (double[]) summaryAnalysis.analysis(list);
+        benchmark.end("SummaryAnalyse");
+        //==================================================
+        // Analise dos dados (Bubble)
+        benchmark.start("BubbleAnalyse");
+        List<UserInfo> bubble = (List<UserInfo>) bubbleSortAnalysis.analysis(list);
+        benchmark.end("BubbleAnalyse");
+        //==================================================
+        // Analise dos dados (Quick)
+        benchmark.start("QuickAnalyse");
+        List<UserInfo> quick = (List<UserInfo>) quickSortAnalysis.analysis(list);
+        benchmark.end("QuickAnalyse");
+        //==================================================
+        // Analise dos dados (Language)
+        benchmark.start("LanguageAnalyse");
+        List<UserInfo> lang = (List<UserInfo>) languageSortAnalysis.analysis(list);
+        benchmark.end("LanguageAnalyse");
+        //==================================================
+
+        benchmark.export(output, TimeFormat.MILLISEGUNDOS);
     }
 
-    public static void read(String fileName, String identificador) throws IOException {
+    public static Properties loadProperties(String configFile) throws IOException {
 
-        long leituraInicio = System.currentTimeMillis();
+        InputStream input = new FileInputStream(configFile);
+        Properties properties = new Properties();
+        properties.load(input);
 
-        Table table = new Table(fileName);
-
-        long leituraFim = System.currentTimeMillis();
-
-        List<UserInfo> list = table.getUserInfoList();
-        SimpleTableAnalysis maxAnalysis = new MaxValueAnalysis();
-        SimpleTableAnalysis minAnalysis = new MinValueAnalysis();
-        SimpleTableAnalysis meanAnalysis = new MeanAnalysis();
-
-        long analiseInicio = System.currentTimeMillis();
-
-        double max = maxAnalysis.analysis(list);
-        double min = minAnalysis.analysis(list);
-        double mean = meanAnalysis.analysis(list);
-
-        long analiseFim = System.currentTimeMillis();
-
-        System.out.println("\nIdentificador: " + identificador);
-        System.out.println("Tempo de leitura (ms): " + (leituraFim - leituraInicio));
-        System.out.println("Tempo de análise (ms): " + (analiseFim - analiseInicio));
-
-        System.out.println("Max: " + max);
-        System.out.println("Min: " + min);
-        System.out.println("Mean: " + mean);
+        return properties;
     }
 }
