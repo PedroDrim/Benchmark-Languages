@@ -22,7 +22,7 @@ public class LanguageSortAnalysis implements TableAnalysis<List<UserInfo>> {
      */
     @Override
     public List<UserInfo> analysis(List<UserInfo> userInfoList) {
-        if(userInfoList.equals(null) || userInfoList.isEmpty())
+        if(userInfoList == null || userInfoList.isEmpty())
             throw new InvalidParameterException("'userInfoList' é null ou vazio");
 
         Collections.sort(userInfoList, userInfoComparator());
@@ -46,8 +46,8 @@ public class LanguageSortAnalysis implements TableAnalysis<List<UserInfo>> {
              */
             @Override
             public int compare(UserInfo userInfo1, UserInfo userInfo2) {
-                if(userInfo1.equals(null)) throw new InvalidParameterException("'userInfo1' é null");
-                if(userInfo2.equals(null)) throw new InvalidParameterException("'userInfo2' é null");
+                if(userInfo1 == null) throw new InvalidParameterException("'userInfo1' é null");
+                if(userInfo2 == null) throw new InvalidParameterException("'userInfo2' é null");
 
                 Double credit1 = userInfo1.getCredit();
                 Double credit2 = userInfo2.getCredit();

@@ -49,7 +49,7 @@ public class BenchmarkMeasure implements BenchmarkOutput {
      */
     @Override
     public void start(String tag) {
-        if(tag.equals(null)) throw new InvalidParameterException("'tag' é null");
+        if(tag == null) throw new InvalidParameterException("'tag' é null");
 
         double time = System.currentTimeMillis();
         this.benchMap.put(tag + START_MARK, time);
@@ -61,7 +61,7 @@ public class BenchmarkMeasure implements BenchmarkOutput {
      */
     @Override
     public void end(String tag) {
-        if(tag.equals(null)) throw new InvalidParameterException("'tag' é null");
+        if(tag == null) throw new InvalidParameterException("'tag' é null");
 
         double time = System.currentTimeMillis();
         this.benchMap.put(tag + END_MARK, time);
@@ -75,8 +75,8 @@ public class BenchmarkMeasure implements BenchmarkOutput {
      */
     @Override
     public double result(String tag, TimeFormat format) {
-        if(tag.equals(null)) throw new InvalidParameterException("'tag' é null");
-        if(format.equals(null)) throw new InvalidParameterException("'format' é null");
+        if(tag == null) throw new InvalidParameterException("'tag' é null");
+        if(format == null) throw new InvalidParameterException("'format' é null");
 
         boolean startTag = this.benchMap.containsKey(tag + START_MARK);
         boolean endTag = this.benchMap.containsKey(tag + END_MARK);
@@ -95,7 +95,7 @@ public class BenchmarkMeasure implements BenchmarkOutput {
      */
     @Override
     public Map<String, Double> result(TimeFormat format) {
-        if(format.equals(null)) throw new InvalidParameterException("'format' é null");
+        if(format == null) throw new InvalidParameterException("'format' é null");
 
         Map<String, Double> mapResult = new HashMap<>();
         Set<String> tagSet = this.benchMap.keySet();
@@ -116,8 +116,8 @@ public class BenchmarkMeasure implements BenchmarkOutput {
      */
     @Override
     public void export(String fileName, TimeFormat format) {
-        if(fileName.equals(null)) throw new InvalidParameterException("'fileName' é null");
-        if(format.equals(null)) throw new InvalidParameterException("'format' é null");
+        if(fileName == null) throw new InvalidParameterException("'fileName' é null");
+        if(format == null) throw new InvalidParameterException("'format' é null");
 
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();

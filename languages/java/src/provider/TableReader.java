@@ -34,7 +34,7 @@ public class TableReader implements DataReader {
      * @throws DataReaderException Lancada caso nao seja possivel ler os dados corretamente
      */
     public TableReader(String fileName) throws DataReaderException {
-        if(fileName.equals(null)) throw new InvalidParameterException("'fileName' é null");
+        if(fileName == null) throw new InvalidParameterException("'fileName' é null");
 
         this.fileName = fileName;
         this.userInfoList = this.deserializeFile(this.fileName);
@@ -79,7 +79,7 @@ public class TableReader implements DataReader {
      * @throws DataReaderException Lancada caso nao seja possivel ler os dados corretamente
      */
     private List<UserInfo> deserializeFile(String fileName) throws DataReaderException {
-        if(fileName.equals(null)) throw new InvalidParameterException("'fileName' é null");
+        if(fileName == null) throw new InvalidParameterException("'fileName' é null");
 
         List<UserInfo> list = new ArrayList<>();
 
@@ -112,7 +112,7 @@ public class TableReader implements DataReader {
      * @return Objeto 'UserInfo'
      */
     private UserInfo convertLine(String line) {
-        if(line.equals(null)) throw new InvalidParameterException("'line' é null");
+        if(line == null) throw new InvalidParameterException("'line' é null");
 
         String[] values = line.split(",");
 

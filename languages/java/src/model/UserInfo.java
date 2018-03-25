@@ -31,8 +31,8 @@ public class UserInfo {
 
     public UserInfo(String user, String password, double credit) {
 
-        if(user.equals(null)) throw new InvalidParameterException("'user' é null");
-        if(password.equals(null)) throw new InvalidParameterException("'password' é null");
+        if(user == null) throw new InvalidParameterException("'user' é null");
+        if(password == null) throw new InvalidParameterException("'password' é null");
 
         this.user = user;
         this.password = password;
@@ -52,7 +52,7 @@ public class UserInfo {
      * @param user Novo nome do usuario
      */
     public void setUser(String user) {
-        if(user.equals(null)) throw new InvalidParameterException("'user' é null");
+        if(user == null) throw new InvalidParameterException("'user' é null");
         this.user = user;
     }
 
@@ -69,7 +69,7 @@ public class UserInfo {
      * @param password Nova senha do usuario
      */
     public void setPassword(String password) {
-        if(password.equals(null)) throw new InvalidParameterException("'password' é null");
+        if(password == null) throw new InvalidParameterException("'password' é null");
         this.password = password;
     }
 
@@ -95,8 +95,7 @@ public class UserInfo {
      * @return Nova senha encriptada
      */
     private String cryptPassword(String password){
-
-        if(password.equals(null)) throw new InvalidParameterException("'password' é null");
+        if(password == null) throw new InvalidParameterException("'password' é null");
 
         char[] passArray = password.toCharArray();
         char[] cryptArray = new char[passArray.length];

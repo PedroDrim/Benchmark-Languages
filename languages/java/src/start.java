@@ -1,6 +1,7 @@
 import model.BenchmarkOutput;
 import model.TableAnalysis;
 import model.TimeFormat;
+import model.exception.InvalidParameterException;
 import provider.*;
 import model.UserInfo;
 
@@ -59,6 +60,7 @@ public class start {
     }
 
     public static Properties loadProperties(String configFile) throws IOException {
+        if(configFile == null) throw new InvalidParameterException("'configFile' é null");
 
         InputStream input = new FileInputStream(configFile);
         Properties properties = new Properties();

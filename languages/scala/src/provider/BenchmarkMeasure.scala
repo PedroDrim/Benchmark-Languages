@@ -1,10 +1,11 @@
 package provider
 
-import java.io.{File, PrintWriter}
+import java.io.{File, FileNotFoundException, PrintWriter}
 
 import com.google.gson.GsonBuilder
 import model.BenchmarkOutput
 import model.TimeFormat.TimeFormat
+import model.exception.{BenchmarkException, DataReaderException, InvalidParameterException}
 
 import scala.collection.mutable
 
@@ -24,6 +25,8 @@ class BenchmarkMeasure extends BenchmarkOutput {
     * @see BenchmarkOutput
     */
   override def start(tag: String): Unit = {
+    if (tag == null) throw new InvalidParameterException("'tag' é null")
+
     val time = System.currentTimeMillis().toDouble
     _benchMap += (tag + START_MARK -> time)
   }
@@ -34,6 +37,8 @@ class BenchmarkMeasure extends BenchmarkOutput {
     * @see BenchmarkOutput
     */
   override def end(tag: String): Unit = {
+    if (tag == null) throw new InvalidParameterException("'tag' é null")
+
     val time = System.currentTimeMillis().toDouble
     _benchMap += (tag + END_MARK -> time)
   }
@@ -46,6 +51,14 @@ class BenchmarkMeasure extends BenchmarkOutput {
     * @see BenchmarkOutput
     */
   override def result(tag: String, format: TimeFormat): Double = {
+    if (tag == null) throw new InvalidParameterException("'tag' é null")
+    if (format == null) throw new InvalidParameterException("'format' é null")
+
+    val startTag = _benchMap.contains(tag + START_MARK)
+    val endTag = _benchMap.contains(tag + END_MARK)
+
+    if (!startTag || !endTag) throw new BenchmarkException("Não encontrado par 'inicio-fim' de:" + tag)
+
     val start = _benchMap.get(tag + START_MARK)
     val end = _benchMap.get(tag + END_MARK)
     val proportion = format.toString.toDouble
@@ -60,6 +73,8 @@ class BenchmarkMeasure extends BenchmarkOutput {
     * @see BenchmarkOutput
     */
   override def result(format: TimeFormat): Map[String, Double] = {
+    if (format == null) throw new InvalidParameterException("'format' é null")
+
     var mapResult = new mutable.HashMap[String, Double]()
     val tagSet = this._benchMap.keySet
 
@@ -79,6 +94,8 @@ class BenchmarkMeasure extends BenchmarkOutput {
     * @see BenchmarkOutput
     */
   override def export(fileName: String, format: TimeFormat): Unit = {
+    if (fileName == null) throw new InvalidParameterException("'fileName' é null")
+    if (format == null) throw new InvalidParameterException("'format' é null")
 
     val builder = new GsonBuilder
     val gson = builder.create
@@ -86,8 +103,12 @@ class BenchmarkMeasure extends BenchmarkOutput {
     val mapResult = this.result(format)
     val serilizedString = gson.toJson(mapResult)
 
-    val printWriter = new PrintWriter( new File(fileName))
-    printWriter.println(serilizedString)
-    printWriter.close()
+    try {
+      val printWriter = new PrintWriter(new File(fileName))
+      printWriter.println(serilizedString)
+      printWriter.close()
+    } catch {
+      case e: FileNotFoundException => throw new DataReaderException("Arquivo nao encontrado: " + fileName, e)
+    }
   }
 }

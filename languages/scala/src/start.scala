@@ -1,8 +1,9 @@
 import java.io.{FileInputStream, InputStream}
 import java.util.Properties
 
-import model.{BenchmarkOutput, TableAnalysis, TimeFormat}
-import provider.{BenchmarkMeasure, MeanAnalysis, RangeValueAnalysis, TableReader}
+import model.exception.InvalidParameterException
+import model.{BenchmarkOutput, TableAnalysis, TimeFormat, UserInfo}
+import provider._
 
 object main {
 
@@ -16,32 +17,41 @@ object main {
 
     val benchmark: BenchmarkOutput = new BenchmarkMeasure
 
+    val summaryAnalysis: TableAnalysis[Array[Double]] = new SummaryAnalysis
+    val bubbleSortAnalysis: TableAnalysis[List[UserInfo]] = new BubbleSortAnalysis
+    val quickSortAnalysis: TableAnalysis[List[UserInfo]] = new QuickSortAnalysis
+
     //==================================================
     // Leitura dos dados
-    benchmark.start("READ")
+    benchmark.start("Read")
     val table = new TableReader(input)
-    benchmark.end("READ")
-    //==================================================
-
     val list = table.read()
-    val rangeValueAnalysis: TableAnalysis[Array[Double]] = new RangeValueAnalysis
-    val meanAnalysis: TableAnalysis[Double] = new MeanAnalysis
-
+    benchmark.end("Read")
     //==================================================
-    // Analise dos dados
-    benchmark.start("ANALYSE")
-    val rangeValue: Array[Double] = rangeValueAnalysis.analysis(list)
-    val meanValue: Double = meanAnalysis.analysis(list)
-    benchmark.end("ANALYSE")
+    // Analise dos dados (Summary)
+    benchmark.start("SummaryAnalyse")
+    val summaryValue: Array[Double] = summaryAnalysis.analysis(list)
+    benchmark.end("SummaryAnalyse")
+    //==================================================
+    // Analise dos dados (Bubble)
+    benchmark.start("BubbleAnalyse")
+    val bubbleValue: List[UserInfo] = bubbleSortAnalysis.analysis(list)
+    benchmark.end("BubbleAnalyse")
+    //==================================================
+    // Analise dos dados (Quick)
+    benchmark.start("QuickAnalyse")
+    val quickValue: List[UserInfo] = quickSortAnalysis.analysis(list)
+    benchmark.end("QuickAnalyse")
     //==================================================
 
     benchmark.export(output, TimeFormat.MILISSEGUNDOS)
   }
 
   def loadProperties(configFile: String): Properties = {
+    if (configFile == null) throw new InvalidParameterException("'configFile' é null")
 
     val input = new FileInputStream (configFile)
-    val properties = new Properties()
+    val properties = new Properties
     properties.load (input)
 
     return properties

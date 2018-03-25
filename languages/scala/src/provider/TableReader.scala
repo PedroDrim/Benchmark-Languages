@@ -1,5 +1,8 @@
 package provider
 
+import java.io.FileNotFoundException
+
+import model.exception.{DataReaderException, InvalidParameterException}
 import model.{DataReader, UserInfo}
 
 import scala.collection.mutable.ListBuffer
@@ -11,6 +14,8 @@ import scala.io.Source
   * @see model.DataReader
   */
 class TableReader(private var _fileName: String) extends DataReader {
+
+  if (_fileName == null) throw new InvalidParameterException("'fileName' é null")
 
   /**
     * Lista contendo os dados
@@ -37,7 +42,13 @@ class TableReader(private var _fileName: String) extends DataReader {
     * @param endIndex   Fim do intervalo
     * @return Lista contendo todos os dados disponiveis dentro do intervalo especificado
     */
-  override def read(startIndex: Int, endIndex: Int): List[UserInfo] = this.userInfoList.slice(startIndex, endIndex)
+  override def read(startIndex: Int, endIndex: Int): List[UserInfo] = {
+    if (startIndex < 0) throw new InvalidParameterException("'startIndex' é menor que 0")
+    if (endIndex < 0) throw new InvalidParameterException("'endIndex' é menor que 0")
+    if (startIndex >= endIndex) throw new InvalidParameterException("'startIndex' é maior ou igual á 'endIndex'")
+
+    return this.userInfoList.slice(startIndex, endIndex)
+  }
 
   /**
     * Desserializa o arquivo de dados, convertendo-o em uma lista de 'UserInfo'
@@ -45,23 +56,31 @@ class TableReader(private var _fileName: String) extends DataReader {
     * @return Lista contendo os dados desserilizados
     */
   private def deserializeFile(fileName: String): List[UserInfo] = {
+    if (fileName == null) throw new InvalidParameterException("'fileName' é null")
 
     var list = new ListBuffer[UserInfo]()
     var header: Boolean = true
 
-    val file = Source.fromFile(_fileName)
-    for (line <- file.getLines) {
+    try {
 
-      if(header) {
-        header = false
+      val file = Source.fromFile(_fileName)
+      for (line <- file.getLines) {
 
-      } else {
-        val userInfo = this.convertLine(line)
-        list += userInfo
+        if (header) {
+          header = false
+
+        } else {
+          val userInfo = this.convertLine(line)
+          list += userInfo
+        }
       }
+
+      file.close()
+
+    } catch {
+      case e: RuntimeException => throw new DataReaderException("Erro ao ler arquivo:" + fileName, e)
     }
 
-    file.close()
     return list.toList
   }
 
@@ -71,6 +90,7 @@ class TableReader(private var _fileName: String) extends DataReader {
     * @return Objeto 'UserInfo'
     */
   private def convertLine(line: String): UserInfo = {
+    if (line == null) throw new InvalidParameterException("'line' é null")
 
     val values = line.split(",")
 

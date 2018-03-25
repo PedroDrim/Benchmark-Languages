@@ -22,7 +22,7 @@ public class QuickSortAnalysis implements TableAnalysis<List<UserInfo>> {
      */
     @Override
     public List<UserInfo> analysis(List<UserInfo> userInfoList) {
-        if(userInfoList.equals(null) || userInfoList.isEmpty())
+        if(userInfoList == null || userInfoList.isEmpty())
             throw new InvalidParameterException("'userInfoList' é null ou vazio");
 
         this.arrayUserInfo = new UserInfo[userInfoList.size()];

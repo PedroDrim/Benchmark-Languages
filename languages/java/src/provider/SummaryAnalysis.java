@@ -20,7 +20,7 @@ public class SummaryAnalysis implements TableAnalysis<double[]> {
      */
     @Override
     public double[] analysis(List<UserInfo> userInfoList) {
-        if(userInfoList.equals(null) || userInfoList.isEmpty())
+        if(userInfoList == null || userInfoList.isEmpty())
             throw new InvalidParameterException("'userInfoList' é null ou vazio");
 
         double max = Double.MIN_VALUE;
