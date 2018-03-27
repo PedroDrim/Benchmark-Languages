@@ -20,6 +20,7 @@ object main {
     val summaryAnalysis: TableAnalysis[Array[Double]] = new SummaryAnalysis
     val bubbleSortAnalysis: TableAnalysis[List[UserInfo]] = new BubbleSortAnalysis
     val quickSortAnalysis: TableAnalysis[List[UserInfo]] = new QuickSortAnalysis
+    val languageSortAnalysis: TableAnalysis[List[UserInfo]] = new LanguageSortAnalysis
 
     //==================================================
     // Leitura dos dados
@@ -42,6 +43,11 @@ object main {
     benchmark.start("QuickAnalyse")
     val quickValue: List[UserInfo] = quickSortAnalysis.analysis(list)
     benchmark.end("QuickAnalyse")
+    //==================================================
+    // Analise dos dados (Language)
+    benchmark.start("LanguageAnalyse")
+    val languageValue: List[UserInfo] = languageSortAnalysis.analysis(list)
+    benchmark.end("LanguageAnalyse")
     //==================================================
 
     benchmark.export(output, TimeFormat.MILISSEGUNDOS)

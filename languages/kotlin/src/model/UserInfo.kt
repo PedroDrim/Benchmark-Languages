@@ -1,4 +1,4 @@
-package box
+package model
 
 /**
  * Informacoes do usuario

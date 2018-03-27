@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System;
-
+using experimento.src.model.exception;
 
 namespace experimento.src.model {
 
@@ -26,6 +26,8 @@ namespace experimento.src.model {
         /// </summary>
         /// <param name="fileName">Nome do arquivo de dados a ser lido</param>
         public TableReader (string fileName) {
+            if(fileName == null) throw new InvalidParameterException("'fileName' e null");
+
             this.fileName = fileName;
             this.userInfoList = this.deserializeFile(this.fileName);
         }
@@ -45,6 +47,10 @@ namespace experimento.src.model {
         /// <param name="endIndex">Fim do intervalo</param>
         /// <returns>Lista contendo todos os dados disponiveis dentro do intervalo especificado</returns>
         public List<UserInfo> read(int startIndex, int endIndex) {
+            if(startIndex < 0) throw new InvalidParameterException("'startIndex' é menor que 0");
+            if(endIndex < 0) throw new InvalidParameterException("'endIndex' é menor que 0");
+            if(startIndex >= endIndex) throw new InvalidParameterException("'startIndex' é maior ou igual á 'endIndex'");
+
             return this.userInfoList.GetRange(startIndex, endIndex);
         }
 
@@ -54,6 +60,7 @@ namespace experimento.src.model {
         /// <param name="fileName">Nome do arquivo de dados</param>
         /// <returns>Lista contendo os dados desserilizados</returns>
         private List<UserInfo> deserializeFile (string fileName) {
+            if(fileName == null) throw new InvalidParameterException("'fileName' e null");
 
             List<UserInfo> userInfoList = new List<UserInfo>();
 
@@ -74,6 +81,8 @@ namespace experimento.src.model {
         /// <param name="line">line Linha a ser desserializada</param>
         /// <returns>Objeto 'UserInfo'</returns>
         private UserInfo convertLine(String line) {
+            if(line == null) throw new InvalidParameterException("'line' e null");
+
             string[] values = line.Split(",");
 
             string user = values[0].Trim();

@@ -3,6 +3,7 @@ package provider
 import com.google.gson.GsonBuilder
 import model.BenchmarkOutput
 import model.TimeFormat
+import model.exception.BenchmarkException
 import java.io.File
 
 
@@ -53,6 +54,11 @@ class BenchmarkMeasure: BenchmarkOutput {
      * @return Tempo decorrido entre o inicio e o fim da captura de estado
      */
     override fun result(tag: String, format: TimeFormat): Double {
+        val startTag = benchMap.containsKey(tag + START_MARK)
+        val endTag = benchMap.containsKey(tag + END_MARK)
+
+        if (!startTag || !endTag) throw BenchmarkException("Não encontrado par 'inicio-fim' de:" + tag)
+
         val start = benchMap.getValue(tag + START_MARK)
         val end = benchMap.getValue(tag + END_MARK)
 

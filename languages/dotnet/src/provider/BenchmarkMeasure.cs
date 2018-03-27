@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using experimento.src.model.exception;
 
 namespace experimento.src.model {
  
@@ -34,6 +35,8 @@ namespace experimento.src.model {
         /// </summary>
         /// <param name="tag">Nome da captura referente</param>
         public void start(string tag) {
+            if(tag == null) throw new InvalidParameterException("'tag' e null");
+
             double time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             this.benchMap.Add(tag + START_MARK, time);
         }
@@ -43,6 +46,8 @@ namespace experimento.src.model {
         /// </summary>
         /// <param name="tag">Nome da captura referente</param>
         public void end(string tag) {
+            if(tag == null) throw new InvalidParameterException("'tag' e null");
+
             double time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             this.benchMap.Add(tag + END_MARK, time);
         }
@@ -54,6 +59,13 @@ namespace experimento.src.model {
         /// <param name="format">Formato do resultado</param>
         /// <returns>Tempo decorrido entre o inicio e o fim da captura de estado</returns>
         public double result(string tag, TimeFormat format) {
+            if(tag == null) throw new InvalidParameterException("'tag' e null");
+            
+            bool startTag = this.benchMap.ContainsKey(tag + START_MARK);
+            bool endTag = this.benchMap.ContainsKey(tag + END_MARK);
+
+            if(!startTag || !endTag) throw new BenchmarkException("Não encontrado par 'inicio-fim' de:" + tag);
+
             double start = this.benchMap[tag + START_MARK];
             double end = this.benchMap[tag + END_MARK];
             return (end - start) * Math.Pow(10,(int)format);
@@ -83,7 +95,9 @@ namespace experimento.src.model {
         /// <param name="fileName">Nome do arquivo de saida</param>
         /// <param name="format">Formato do resultado</param>
         public void export(string fileName, TimeFormat format) {
-            
+            if(fileName == null) throw new InvalidParameterException("'fileName' e null");
+
+
             Dictionary<string, double> mapResult = this.result(format);
             string jsonString = JsonConvert.SerializeObject(mapResult);
             

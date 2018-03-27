@@ -1,7 +1,5 @@
 package model
 
-import box.UserInfo
-
 /**
  * Interface para leitura de dados
  */

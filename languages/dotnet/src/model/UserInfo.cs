@@ -1,3 +1,5 @@
+using experimento.src.model.exception;
+
 namespace experimento.src.model {
 
     /// <summary>
@@ -10,7 +12,7 @@ namespace experimento.src.model {
         /// <summary>
         /// Nome do usuario
         /// </summary>
-        /// <returns>Nome od usuario</returns>
+        /// <returns>Nome do usuario</returns>
         public string user {get; set;}
         
         /// <summary>
@@ -26,6 +28,9 @@ namespace experimento.src.model {
         /// <param name="password">Senha do usuario</param>
         /// <param name="credit">Quantidade de creditos do usuario</param>
         public UserInfo(string user, string password, double credit) {
+            if(user == null) throw new InvalidParameterException("'user' e null");
+            if(password == null) throw new InvalidParameterException("'password' e null");
+
             this.user = user;
             this._password = password;
             this.credit = credit;
@@ -41,6 +46,7 @@ namespace experimento.src.model {
             }
 
             set {
+                if(value == null) throw new InvalidParameterException("'password' e null");
                 this._password = value;
             }
         }
@@ -51,6 +57,8 @@ namespace experimento.src.model {
         /// <param name="password">Senha a ser encriptada</param>
         /// <returns>Nova senha encriptada</returns>
         private string cryptPassword(string password){
+            if(password == null) throw new InvalidParameterException("'password' e null");
+
             string[] cryptArray = password.Split("");
             string[] reverseArray = new string[cryptArray.Length];
 

@@ -1,6 +1,6 @@
 package provider
 
-import box.UserInfo
+import model.UserInfo
 import model.DataReader
 import java.io.BufferedReader
 import java.io.File

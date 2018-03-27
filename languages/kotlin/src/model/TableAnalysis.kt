@@ -1,7 +1,5 @@
 package model
 
-import box.UserInfo
-
 /**
  * Interface para analise dos dados
  * @param <T> Tipo de classe do resultado
