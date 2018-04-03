@@ -1,44 +1,64 @@
-// Importando bibliotecas
-import {Table} from './model/Table'
-import { UserInfo } from './model/UserInfo';
-import { SimpleTableAnalysis } from './model/SimpleTableAnalysis';
-import { MaxValueAnalysis } from './provider/MaxValueAnalysis';
-import { MinValueAnalysis } from './provider/MinValueAnalysis';
-import { MeanAnalysis } from './provider/MeanAnalysis';
+import { TableReader } from "./provider/TableReader";
+import { BenchmarkOutput } from "./model/BenchmarkOutput";
+import { BenchmarkMeasure } from "./provider/BenchmarkMeasure";
+import { TableAnalysis } from "./model/TableAnalysis";
+import { SummaryAnalysis } from "./provider/SummaryAnalysis";
+import { BubbleSortAnalysis } from "./provider/BubbleSortAnalysis";
+import { QuickSortAnalysis } from "./provider/QuickSortAnalysis";
+import { LanguageSortAnalysis } from "./provider/LanguageSortAnalysis";
+import { UserInfo } from "./model/UserInfo";
+import { TimeFormat } from "./model/TimeFormat";
+import { InvalidParameterException } from "./model/exception/InvalidParameterException";
 
-let fileName = "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/outputs/inputclass/inputclass_1e+06.csv"
-let identificador = "typescript_1_inputclass_1e+06"
+import fs = require('fs');
 
-// Obtendo o tempo inicial de leitura em milissegundos
-let leitura_antes = new Date().getTime()
+export class Start {
 
-// Convertendo arquivo em lista de "UserInfo"
-var table: Table = new Table(fileName);
+    public constructor() {
 
-// Obtendo o tempo final de leitura em milissegundos
-let leitura_depois = new Date().getTime()
+        let configFile = "./config.json";
+        let properties = require(configFile);
 
-let list: UserInfo[] = table.getUserInfoList();
+        let input: string = properties.INPUT_FILENAME;
+        let output: string = properties.OUTPUT_FILENAME;
 
-let maxAnalysis: SimpleTableAnalysis = new MaxValueAnalysis()
-let minAnalysis: SimpleTableAnalysis = new MinValueAnalysis()
-let meanAnalysis: SimpleTableAnalysis = new MeanAnalysis()
+        let benchmark: BenchmarkOutput = new BenchmarkMeasure();
 
-// Obtendo o tempo inicial de analise em milissegundos
-let analise_antes = new Date().getTime()
+        let summaryAnalysis: TableAnalysis<Array<number>> = new SummaryAnalysis();
+        let bubbleSortAnalysis: TableAnalysis<Array<UserInfo>> = new BubbleSortAnalysis();
+        let quickSortAnalysis: TableAnalysis<Array<UserInfo>> = new QuickSortAnalysis();
+        let languageSortAnalysis: TableAnalysis<Array<UserInfo>> = new LanguageSortAnalysis();
 
-// Realizando analises
-let max = maxAnalysis.analysis(list)
-let min = minAnalysis.analysis(list)
-let mean = meanAnalysis.analysis(list)
+        //==================================================
+        // Leitura dos dados
+        benchmark.start("Read");
+        let tableReader: TableReader = new TableReader(input);
+        let list: Array<UserInfo> = tableReader.readAll();
+        benchmark.end("Read");
+        //==================================================
+        // Analise dos dados (Summary)
+        benchmark.start("SummaryAnalyse");
+        let summary: Array<number> = summaryAnalysis.analysis(list);
+        benchmark.end("SummaryAnalyse");
+        //==================================================
+        // Analise dos dados (Bubble)
+        benchmark.start("BubbleAnalyse");
+        let bubble: Array<UserInfo> =  bubbleSortAnalysis.analysis(list);
+        benchmark.end("BubbleAnalyse");
+        //==================================================
+        // Analise dos dados (Quick)
+        benchmark.start("QuickAnalyse");
+        let quick: Array<UserInfo> =  quickSortAnalysis.analysis(list);
+        benchmark.end("QuickAnalyse");
+        //==================================================
+        // Analise dos dados (Language)
+        benchmark.start("LanguageAnalyse");
+        let lang: Array<UserInfo> =   languageSortAnalysis.analysis(list);
+        benchmark.end("LanguageAnalyse");
+        //==================================================
 
-// Obtendo o tempo final de analise em milissegundos
-let analise_depois = new Date().getTime()
+        benchmark.export(output, TimeFormat.MILLISEGUNDOS);
+    }
+}
 
-// Dados de saida
-console.log("Identificador: " + identificador)
-console.log("Tempo de leitura (ms): " + (leitura_depois - leitura_antes))
-console.log("Tempo de analise (ms): " + (analise_depois - analise_antes))
-console.log("Max: " + max)
-console.log("Min: " + min)
-console.log("Mean: " + mean)
+let start: Start = new Start()

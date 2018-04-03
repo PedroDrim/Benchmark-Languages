@@ -12,6 +12,9 @@ var tsProject = ts.createProject("tsconfig.json");
 var build_dir = "bin/build";
 
 gulp.task("compile-ts", function () {
+    gulp.src("./src/config.json")
+        .pipe(gulp.dest("./bin/build/"))
+    
     return tsProject.src()
         .pipe(tslint({
             formatter: "msbuild"

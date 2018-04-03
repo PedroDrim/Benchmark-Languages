@@ -64,13 +64,18 @@ namespace experimento.src.model {
 
             List<UserInfo> userInfoList = new List<UserInfo>();
 
-            StreamReader file = new StreamReader(fileName);  
-            string line = file.ReadLine();
-            while((line = file.ReadLine()) != null) {  
-                UserInfo userInfo = this.convertLine(line);
-                userInfoList.Add(userInfo);
-            }  
-            file.Close();  
+            try {
+                StreamReader file = new StreamReader(fileName);  
+                string line = file.ReadLine();
+                while((line = file.ReadLine()) != null) {  
+                    UserInfo userInfo = this.convertLine(line);
+                    userInfoList.Add(userInfo);
+                }  
+                file.Close();  
+                
+            }catch(FileNotFoundException e) {
+                throw new DataReaderException("Erro ao abrir o arquivo " + fileName);
+            } 
 
             return userInfoList;
         }

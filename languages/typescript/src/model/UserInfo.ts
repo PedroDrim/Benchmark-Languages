@@ -1,54 +1,99 @@
-// Criando uma classe "UserInfo"
+import {InvalidParameterException} from './exception/InvalidParameterException'
+
+/**
+ * Informacoes do usuario
+ */
 export class UserInfo {
-     
+
+    /**
+     * Nome do usuario
+     */
     private user: string;
+
+    /**
+     * Senha do usuario
+     */
     private password: string;
+
+    /**
+     * Quantidade de creditos do usuario
+     */
     private credit: number;
 
-    // Construtor da classe
-    // user: string -> nome do usuário
-    // password: string -> senha da conta
-    // credit: double -> creditos da conta
-    constructor(user: string, password: string, credit: number){
+    /**
+     * Construtor publico da classe
+     * @param user Nome do usuario
+     * @param password Senha do usuario
+     * @param credit Quantidade de creditos do usuario
+     */
+
+    constructor(user: string, password: string, credit: number) {
+
+        if(user == null) throw new InvalidParameterException("'user' é null");
+        if(password == null) throw new InvalidParameterException("'password' é null");
+
         this.user = user;
         this.password = password;
         this.credit = credit;
     }
 
-    // Método getter de "user"
-    public getUser(): string{
-        return(this.user);
+    /**
+     * Obtem o nome do usuario
+     * @return Nome do usuario
+     */
+    public getUser(): string {
+        return this.user;
     }
 
-    // Método getter de "credit"
-    public getCredit(): number{
-        return(this.credit);
-    }
-
-    // Método getter customizado de "password"
-    public getPassword(): string{
-        return(this.cryptPassword(this.password));
-    }
-
-    // Método setter de "user"
-    public setUser(user: string) {
+    /**
+     * Atualiza o nome do usuario
+     * @param user Novo nome do usuario
+     */
+    public setUser(user: string): void {
+        if(user == null) throw new InvalidParameterException("'user' é null");
         this.user = user;
     }
 
-    // Método setter de "credit"
-    public setCredit(credit: number){
+    /**
+     * Obtem a senha do usuario criptografada
+     * @return Senha do usuario criptografada
+     */
+    public getPassword(): string {
+        return this.cryptPassword(this.password);
+    }
+
+    /**
+     * Atualiza a senha do usuario
+     * @param password Nova senha do usuario
+     */
+    public setPassword(password: string): void {
+        if(password == null) throw new InvalidParameterException("'password' é null");
+        this.password = password;
+    }
+
+    /**
+     * Obtem a quantidade de creditos do usuario
+     * @return Quantidade de creditos do usuario
+     */
+    public getCredit(): number {
+        return this.credit;
+    }
+
+    /**
+     * Atualiza a quantidade de creditos do usuario
+     * @param credit Nova quantidade de creditos do usuario
+     */
+    public setCredit(credit: number): void {
         this.credit = credit;
     }
 
-    // Método setter de "password"
-    public setPassword(password: string) {
-        this.password = this.password;
-    }
-
-    // Método privado para encriptar senhas
-    // password: string -> senha a ser encriptada
-    // RETURN: string -> nova senha    
-    private cryptPassword(password: string): string {
+    /**
+     * Metodo privado para encriptar a senha do usuario
+     * @param password Senha a ser encriptada
+     * @return Nova senha encriptada
+     */
+    private cryptPassword(password: string): string{
+        if(password == null) throw new InvalidParameterException("'password' é null");
         return password.split("").reverse().join("");
     }
 }
