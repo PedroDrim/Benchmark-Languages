@@ -1,43 +1,41 @@
-import {TableAnalysis} from '../model/TableAnalysis'
-import {UserInfo} from '../model/UserInfo'
-import {InvalidParameterException} from '../model/exception/InvalidParameterException'
+require './src/model/TableAnalysis.rb'
+require './src/model/UserInfo.rb'
+require './src/model/exception/InvalidParameterException.rb'
 
-/**
- * Classe para ordenacao bubbleSort
- * @see model.TableAnalysis
- */
-export class BubbleSortAnalysis implements TableAnalysis<Array<UserInfo>> {
+# Classe para ordenacao bubbleSort
+# @see model.TableAnalysis
+class BubbleSortAnalysis
+    include TableAnalysis
 
-    /**
-     * Realiza uma ordenacao bubbleSort
-     * @param userInfoList Lista de dados a ser analisada
-     * @return Elemento aleatorio da lista
-     * @see TableAnalysis
-     */
-    public analysis(userInfoList: Array<UserInfo>): Array<UserInfo> {
-        if(userInfoList == null || userInfoList.length == 0)
-            throw new InvalidParameterException("'userInfoList' é null ou vazio");
+    # Realiza uma ordenacao bubbleSort
+    # @param userInfoList Lista de dados a ser analisada
+    # @return Elemento aleatorio da lista
+    # @see TableAnalysis
+    def analysis(userInfoList)
+        if(userInfoList.nil? || userInfoList.size == 0)
+            raise InvalidParameterException.new("'userInfoList' é nil ou vazio")
+        end
 
-        var aux: UserInfo;
-        let size: number = userInfoList.length;
+        aux = nil
+        size = userInfoList.size
 
-        for(var index1: number = 0; index1 < size; index1++) {
-            for(var index2: number = 1; index2 < (size - index1); index2++) {
+        for index1 in 0...size
+            for index2 in 1...(size - index1)
 
-                var user1: UserInfo = userInfoList[index2];
-                var user2: UserInfo = userInfoList[index2 - 1];
+                user1 = userInfoList[index2];
+                user2 = userInfoList[index2 - 1];
 
-                if(user1.getCredit() > user2.getCredit()) {
+                if user1.getCredit() > user2.getCredit()
                     aux = user1;
                     user1 = user2;
                     user2 = aux;
 
                     userInfoList[index2] = user1;
                     userInfoList[index2 - 1] = user2;
-                }
-            }
-        }
+                end
+            end
+        end
 
         return userInfoList;
-    }
-}
+    end
+end

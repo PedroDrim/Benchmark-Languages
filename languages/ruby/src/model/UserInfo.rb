@@ -1,4 +1,4 @@
-require './exception/InvalidParameterException.rb'
+require './src/model/exception/InvalidParameterException.rb'
 
 # Informacoes do usuario
 class UserInfo
@@ -7,16 +7,16 @@ class UserInfo
     # @param user Nome do usuario
     # @param password Senha do usuario
     # @param credit Quantidade de creditos do usuario
-    def initialize(user, password, credit) {
+    def initialize(user, password, credit)
 
-        if(user.isNil?) raise InvalidParameterException.new("'user' é null")
-        if(password.isNil?) raise InvalidParameterException.new("'password' é null")
-        if(credit.isNil?) raise InvalidParameterException.new("'credit' é null")
+        raise InvalidParameterException.new("'user' é nil") if(user.nil?)
+        raise InvalidParameterException.new("'password' é nil") if(password.nil?)
+        raise InvalidParameterException.new("'credit' é nil") if(credit.nil?)
 
-        @user = user
-        @password = password
-        @credit = credit
-    }
+        @user = user.to_s
+        @password = password.to_s
+        @credit = credit.to_f
+    end
 
     # Obtem o nome do usuario
     # @return Nome do usuario
@@ -27,7 +27,7 @@ class UserInfo
     # Atualiza o nome do usuario
     # @param user Novo nome do usuario
     def setUser(user)
-        raise InvalidParameterException.new("'user' é null") if(user.isNil?)
+        raise InvalidParameterException.new("'user' é nil") if(user.nil?)
         @user = user
     end
 
@@ -40,7 +40,7 @@ class UserInfo
     # Atualiza a senha do usuario
     # @param password Nova senha do usuario
     def setPassword(password)
-        raise InvalidParameterException.new("'password' é null") if(password.isNil?)
+        raise InvalidParameterException.new("'password' é nil") if(password.nil?)
         this.password = password
     end
 
@@ -53,6 +53,7 @@ class UserInfo
     # Atualiza a quantidade de creditos do usuario
     # @param credit Nova quantidade de creditos do usuario
     def setCredit(credit)
+        raise InvalidParameterException.new("'credit' é nil") if(credit.nil?)
         @credit = credit
     end
 
@@ -61,7 +62,7 @@ class UserInfo
     # @return Nova senha encriptada
     private 
     def cryptPassword(password)
-        raise InvalidParameterException.new("'password' é null") if(password.isNil?)
+        raise InvalidParameterException.new("'password' é nil") if(password.nil?)
         return password.reverse();
     end
-}
+end

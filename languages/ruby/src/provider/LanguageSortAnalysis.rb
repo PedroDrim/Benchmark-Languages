@@ -1,23 +1,25 @@
-import {TableAnalysis} from '../model/TableAnalysis'
-import {UserInfo} from '../model/UserInfo'
-import {InvalidParameterException} from '../model/exception/InvalidParameterException'
+require './src/model/TableAnalysis.rb'
+require './src/model/UserInfo.rb'
+require './src/model/exception/InvalidParameterException.rb'
 
-/**
- * Classe para analise de dados, obtem um usuario aleatoriamente
- * @see TableAnalysis
- */
-export class LanguageSortAnalysis implements TableAnalysis<Array<UserInfo>> {
+# Classe para analise de dados, obtem um usuario aleatoriamente
+# @see TableAnalysis
+class LanguageSortAnalysis
+    include TableAnalysis
 
-    /**
-     * Realiza uma analise aleatoria dos dados
-     * @param userInfoList Lista de dados a ser analisada
-     * @return Elemento aleatorio da lista
-     * @see TableAnalysis
-     */
-    public analysis(userInfoList: Array<UserInfo>): Array<UserInfo> {
-        if(userInfoList == null || userInfoList.length == 0)
-            throw new InvalidParameterException("'userInfoList' é null ou vazio");
+    # Realiza uma analise aleatoria dos dados
+    # @param userInfoList Lista de dados a ser analisada
+    # @return Elemento aleatorio da lista
+    # @see TableAnalysis
+    def analysis(userInfoList)
+        if(userInfoList.nil? || userInfoList.size == 0)
+            raise InvalidParameterException.new("'userInfoList' é nil ou vazio")
+        end
 
-        return userInfoList.sort( (u1, u2) => u1.getCredit() > u2.getCredit()? 1 : -1 );
-    }
-}
+        sortedList = userInfoList.sort_by do |u1| 
+            u1.getCredit
+        end
+
+        return sortedList
+    end
+end

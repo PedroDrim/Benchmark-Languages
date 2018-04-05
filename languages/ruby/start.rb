@@ -1,42 +1,70 @@
-# Importando bibliotecas
-require './src/model/Table.rb'
-require './src/provider/MaxValueAnalysis.rb'
-require './src/provider/MinValueAnalysis.rb'
-require './src/provider/MeanAnalysis.rb'
+require "./src/provider/TableReader.rb"
+require "./src/model/BenchmarkOutput.rb"
+require "./src/provider/BenchmarkMeasure.rb"
+require "./src/model/TableAnalysis.rb"
+require "./src/provider/SummaryAnalysis.rb"
+require "./src/provider/BubbleSortAnalysis.rb"
+require "./src/provider/QuickSortAnalysis.rb"
+require "./src/provider/LanguageSortAnalysis.rb"
+require "./src/model/UserInfo.rb"
+require "./src/model/TimeFormat.rb"
+require "./src/model/exception/InvalidParameterException.rb"
 
-fileName = "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/outputs/inputclass/inputclass_1e+06.csv"
-identificador = "ruby_1_inputclass_1e+06"
+require "json"
 
-# Obtendo o tempo inicial de leitura em milissegundos
-leitura_inicio = Time.now
+class Start
 
-# Convertendo arquivo em lista de "UserInfo"
-table = Table.new(fileName)
+    def initialize
 
-# Obtendo o tempo final de leitura em milissegundos
-leitura_fim = Time.now
+        configFile = "./config.json"
+        properties = self.getConfig(configFile)
 
-list = table.userInfoList
+        input = properties["INPUT_FILENAME"]
+        output = properties["OUTPUT_FILENAME"]
 
-maxValue = MaxValueAnalysis.new
-minValue = MinValueAnalysis.new
-meanValue = MeanAnalysis.new
+        benchmark = BenchmarkMeasure.new
 
-# Obtendo o tempo inicial de analise em milissegundos
-analise_inicio = Time.now
+        summaryAnalysis = SummaryAnalysis.new
+        bubbleSortAnalysis = BubbleSortAnalysis.new
+        quickSortAnalysis = QuickSortAnalysis.new
+        languageSortAnalysis = LanguageSortAnalysis.new
 
-# Realizando analises
-max = maxValue.analysis(list)
-min = minValue.analysis(list)
-mean = meanValue.analysis(list)
+        #==================================================
+        # Leitura dos dados
+        benchmark.startState("Read")
+        tableReader = TableReader.new(input)
+        list = tableReader.readAll
+        benchmark.endState("Read")
+        #==================================================
+        # Analise dos dados (Summary)
+        benchmark.startState("SummaryAnalyse")
+        summary = summaryAnalysis.analysis(list)
+        benchmark.endState("SummaryAnalyse")
+        #==================================================
+        # Analise dos dados (Bubble)
+        benchmark.startState("BubbleAnalyse")
+        bubble =  bubbleSortAnalysis.analysis(list)
+        benchmark.endState("BubbleAnalyse")
+        #==================================================
+        # Analise dos dados (Quick)
+        benchmark.startState("QuickAnalyse")
+        quick =  quickSortAnalysis.analysis(list)
+        benchmark.endState("QuickAnalyse")
+        #==================================================
+        # Analise dos dados (Language)
+        benchmark.startState("LanguageAnalyse")
+        lang = languageSortAnalysis.analysis(list)
+        benchmark.endState("LanguageAnalyse")
+        #==================================================
 
-# Obtendo o tempo final de analise em milissegundos
-analise_fim = Time.now
+        benchmark.export(output, TimeFormat::MILLISEGUNDOS)
+    end
 
-# Dados de saida
-p("Identificador: #{identificador}")
-p("Tempo de leitura (ms): #{(leitura_fim - leitura_inicio)*1000.0}")
-p("Tempo de análise (ms): #{(analise_fim - analise_inicio)*1000.0}")
-p("Max: #{max}")
-p("Min: #{min}")
-p("Mean: #{mean}")
+    def getConfig(fileName)
+        lines = File.read(fileName)
+        return JSON.parse(lines)
+    end
+    
+end
+
+Start.new

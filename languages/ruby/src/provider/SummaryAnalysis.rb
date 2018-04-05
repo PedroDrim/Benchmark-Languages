@@ -1,36 +1,34 @@
-import {TableAnalysis} from '../model/TableAnalysis'
-import {InvalidParameterException} from '../model/exception/InvalidParameterException'
-import { UserInfo } from '../model/UserInfo';
+require './src/model/TableAnalysis.rb'
+require './src/model/exception/InvalidParameterException.rb'
+require './src/model/UserInfo.rb'
 
-/**
- * Classe para analise de dados, obtem os valores maximo e minimo dos creditos dos usuarios
- * @see model.TableAnalysis
- */
-export class SummaryAnalysis implements TableAnalysis<number[]> {
+# Classe para analise de dados, obtem os valores maximo e minimo dos creditos dos usuarios
+# @see model.TableAnalysis
+class SummaryAnalysis 
+    include TableAnalysis
+    
+    # Realiza a analise maxima e minima dos dados
+    # @param userInfoList Lista de dados a ser analisada
+    # @return Valores maximo e minimo dos creditos
+    # @see TableAnalysis
+    def analysis(userInfoList)
+        if(userInfoList.nil? || userInfoList.size == 0)
+            raise InvalidParameterException.new("'userInfoList' é nil ou vazio")
+        end
 
-    /**
-     * Realiza a analise maxima e minima dos dados
-     * @param userInfoList Lista de dados a ser analisada
-     * @return Valores maximo e minimo dos creditos
-     * @see TableAnalysis
-     */
-    public analysis(userInfoList: Array<UserInfo>): number[] {
-        if(userInfoList == null || userInfoList.length == 0)
-            throw new InvalidParameterException("'userInfoList' é null ou vazio");
+        max = -1_000_000_000
+        min = -1_000_000_000
+        sum = 0
 
-        let max: number = Number.MIN_VALUE;
-        let min: number = Number.MAX_VALUE;
-        let sum: number = 0;
+        userInfoList.each do |userInfo|
+            sum += userInfo.getCredit
+            max = userInfo.getCredit if(userInfo.getCredit > max) 
+            min = userInfo.getCredit if(userInfo.getCredit > min)             
+        end
+    
+        mean = sum/userInfoList.size
 
-        for(let userInfo of userInfoList){
-            var credit: number = userInfo.getCredit();
-            sum += credit;
-            if(max < credit) max = credit;
-            if(min > credit) min = credit;
-        }
-
-        let mean: number = sum/userInfoList.length;
-        return [min, max, mean];
-    }
-}
+        return [min, max, mean]
+    end
+end
 

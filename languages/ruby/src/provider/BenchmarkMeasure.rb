@@ -1,122 +1,97 @@
-import {BenchmarkOutput} from '../model/BenchmarkOutput'
-import {InvalidParameterException} from '../model/exception/InvalidParameterException'
-import {DataReaderException} from '../model/exception/DataReaderException'
-import {BenchmarkException} from '../model/exception/BenchmarkException'
-import { TimeFormat } from '../model/TimeFormat';
+require './src/model/BenchmarkOutput.rb'
+require './src/model/exception/InvalidParameterException.rb'
+require './src/model/exception/DataReaderException.rb'
+require './src/model/exception/BenchmarkException.rb'
+require './src/model/TimeFormat.rb'
 
-import fs = require('fs');
+require 'json'
 
-/**
- * Classe para captura de estados de tempo
- * @see model.BenchmarkOutput
- */
-export class BenchmarkMeasure implements BenchmarkOutput {
+# Classe para captura de estados de tempo
+# @see model.BenchmarkOutput
+class BenchmarkMeasure 
+    include BenchmarkOutput
 
-    /**
-     * Marca de inicio de estado
-     */
-    private START_MARK: string = "_S";
+    # Construtor publico da classe
+    def initialize
+        @benchMap = Hash.new
+        @START_MARK = "_S"
+        @END_MARK = "_E"
+    end
 
-    /**
-     * Marca de fim de estado
-     */
-    private END_MARK: string = "_E";
+    # Inicio da captura de estado
+    # @param tag Nome da captura referente
+    def startState(tag)
+        raise InvalidParameterException.new("'tag' é nil") if(tag.nil?)
 
-    private date: Date;
+        time = Time.now
+        sym = tag + @START_MARK
+        @benchMap[sym.to_sym] = time
+    end
 
-    /**
-     * Mapa de estados
-     */
-    private benchMap: Map<string, number>;
+    # Fim da captura de estado
+    # @param tag Nome da captura referente
+    def endState(tag)
+        raise InvalidParameterException.new("'tag' é nil") if(tag.nil?)
 
-    /**
-     * Construtor publico da classe
-     */
-    constructor() {
-        this.benchMap = new Map();
-        this.date = new Date();
-    }
+        time = Time.now
+        sym = tag + @END_MARK
+        @benchMap[sym.to_sym] = time
+    end
 
-    /**
-     * Inicio da captura de estado
-     * @param tag Nome da captura referente
-     */
-    public start(tag: string): void {
-        if(tag == null) throw new InvalidParameterException("'tag' é null");
+    # Resultado da captura de estado especifica
+    # @param tag Nome da captura referente
+    # @param format Formato do resultado
+    # @return Tempo decorrido entre o inicio e o fim da captura de estado
+    def resultByTag(tag, format)
+        raise InvalidParameterException.new("'tag' é nil") if(tag.nil?)
+        raise InvalidParameterException.new("'format' é nil") if(format.nil?)
 
-        let time: number = this.date.getTime();
-        this.benchMap.set(tag + this.START_MARK, time);
-    }
+        startSym = tag + @START_MARK
+        endSym = tag + @END_MARK
 
-    /**
-     * Fim da captura de estado
-     * @param tag Nome da captura referente
-     */
-    public end(tag: String): void {
-        if(tag == null) throw new InvalidParameterException("'tag' é null");
+        startTag = @benchMap.key?(startSym.to_sym)
+        endTag = @benchMap.key?(endSym.to_sym)
 
-        let time: number = this.date.getTime();
-        this.benchMap.set(tag + this.END_MARK, time);
-    }
+        raise BenchmarkException.new("Não encontrado par 'inicio-fim' de:" + tag) if(!startTag || !endTag)
 
-    /**
-     * Resultado da captura de estado especifica
-     * @param tag Nome da captura referente
-     * @param format Formato do resultado
-     * @return Tempo decorrido entre o inicio e o fim da captura de estado
-     */
-    public resultByTag(tag: string, format: TimeFormat): number {
-        if(tag == null) throw new InvalidParameterException("'tag' é null");
-        if(format == null) throw new InvalidParameterException("'format' é null");
+        startTime = @benchMap[startSym.to_sym]
+        endTime = @benchMap[endSym.to_sym]
+        
+        return (endTime - startTime) * format;
+    end
 
-        let startTag: boolean = this.benchMap.has(tag + this.START_MARK);
-        let endTag: boolean = this.benchMap.has(tag + this.END_MARK);
+    # Resultado de todas as capturas de estado
+    # @param format Formato do resultado
+    # @return Mapa contendo o tempo decorrido entre o inicio e o fim da captura de estado para cada estado gerado.
+    def result(format)
+        raise InvalidParameterException.new("'format' é nil") if(format.nil?)
 
-        if(!startTag || !endTag) throw new BenchmarkException("Não encontrado par 'inicio-fim' de:" + tag);
+        mapResult = Hash.new
 
-        let start: number = this.benchMap.get(tag + this.START_MARK);
-        let end: number = this.benchMap.get(tag + this.END_MARK);
-        return (end - start) * format;
-    }
-
-    /**
-     * Resultado de todas as capturas de estado
-     * @param format Formato do resultado
-     * @return Mapa contendo o tempo decorrido entre o inicio e o fim da captura de estado para cada estado gerado.
-     */
-    public result(format: TimeFormat): Map<string, number> {
-        if(format == null) throw new InvalidParameterException("'format' é null");
-
-        var mapResult: Map<string, number> = new Map();
-        let tagSet = this.benchMap.keys();
-
-        this.benchMap.forEach( (value: number, key: string) => {
-            let tag: string = key.split("_")[0];
-            let time: number = this.resultByTag(tag, format);
-            mapResult.set(tag, time);
-        })
+        @benchMap.each do |key, value|
+            tag = key.to_s.split("_")[0];
+            time = self.resultByTag(tag, format);
+            mapResult[tag.to_sym] = time
+        end
 
         return mapResult;
-    }
+    end
 
-    /**
-     * Exporta o resultado no formato de um arquivo
-     * @param fileName Nome do arquivo de saida
-     * @param format Formato do resultado
-     */
-    public export(fileName: string, format: TimeFormat): void {
-        if(fileName == null) throw new InvalidParameterException("'fileName' é null");
-        if(format == null) throw new InvalidParameterException("'format' é null");
+    # Exporta o resultado no formato de um arquivo
+    # @param fileName Nome do arquivo de saida
+    # @param format Formato do resultado
+    def export(fileName, format)
+        raise InvalidParameterException.new("'fileName' é nil") if(fileName.nil?)
+        raise InvalidParameterException.new("'format' é nil") if(format.nil?)
 
-        let mapResult: Map<string, number> = this.result(format);
-        let serilizedString: string = JSON.stringify(mapResult);
+        mapResult = self.result(format)
+        serilizedString = mapResult.to_json
         
-        try {
-            let file = fs.writeFileSync(fileName, serilizedString);
+        begin
+            File.write(fileName, serilizedString)
+        rescue
+            raise DataReaderException.new("Arquivo não encontrado:" + fileName)
+        end
 
-        } catch (e) {
-            throw new DataReaderException("Arquivo não encontrado:" + fileName);
-        }
-
-    }
-}
+    end
+end

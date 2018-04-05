@@ -1,4 +1,4 @@
-require './UserInfo.rb'
+require './src/model/UserInfo.rb'
 
 # Interface para analise dos dados
 module TableAnalysis

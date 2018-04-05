@@ -1,7 +1,6 @@
-export class InvalidParameterException extends Error {
+class InvalidParameterException < StandardError
     
-    constructor(m: string) {
-        super(m);
-        Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    }
-}
+    def initialize(msg)
+        super(msg)
+    end
+end

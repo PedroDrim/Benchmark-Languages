@@ -1,11 +1,11 @@
-require './UserInfo.rb'
+require './src/model/UserInfo.rb'
 
 # Interface para leitura de dados
-def DataReader
+module DataReader
 
     # Obtem todos os dados disponiveis
     # @return Lista contendo todos os dados disponiveis
-    def read()
+    def readAll
         raise "Not implemented"
     end
 

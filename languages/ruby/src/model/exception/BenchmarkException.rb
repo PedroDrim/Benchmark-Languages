@@ -1,7 +1,6 @@
-export class BenchmarkException extends Error {
+class BenchmarkException < StandardError
     
-    constructor(m: string) {
-        super(m);
-        Object.setPrototypeOf(this, BenchmarkException.prototype);
-    }
-}
+    def initialize(msg)
+        super(msg)
+    end
+end

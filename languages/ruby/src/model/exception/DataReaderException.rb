@@ -1,7 +1,6 @@
-export class DataReaderException extends Error {
+class DataReaderException < StandardError
     
-    constructor(m: string) {
-        super(m);
-        Object.setPrototypeOf(this, DataReaderException.prototype);
-    }
-}
+    def initialize(msg)
+        super(msg)
+    end
+end
