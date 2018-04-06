@@ -22,20 +22,20 @@ class BubbleSortAnalysis
         for index1 in 0...size
             for index2 in 1...(size - index1)
 
-                user1 = userInfoList[index2];
-                user2 = userInfoList[index2 - 1];
+                user1 = userInfoList[index2]
+                user2 = userInfoList[index2 - 1]
 
                 if user1.getCredit() > user2.getCredit()
-                    aux = user1;
-                    user1 = user2;
-                    user2 = aux;
+                    aux = user1
+                    user1 = user2
+                    user2 = aux
 
-                    userInfoList[index2] = user1;
-                    userInfoList[index2 - 1] = user2;
+                    userInfoList[index2] = user1
+                    userInfoList[index2 - 1] = user2
                 end
             end
         end
 
-        return userInfoList;
+        return userInfoList
     end
 end

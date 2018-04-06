@@ -13,9 +13,9 @@ class UserInfo
         raise InvalidParameterException.new("'password' é nil") if(password.nil?)
         raise InvalidParameterException.new("'credit' é nil") if(credit.nil?)
 
-        @user = user.to_s
-        @password = password.to_s
-        @credit = credit.to_f
+        @user = user
+        @password = password
+        @credit = credit
     end
 
     # Obtem o nome do usuario
@@ -34,20 +34,20 @@ class UserInfo
     # Obtem a senha do usuario criptografada
     # @return Senha do usuario criptografada
     def getPassword
-        return self.cryptPassword(@password)
+        return cryptPassword(@password)
     end
 
     # Atualiza a senha do usuario
     # @param password Nova senha do usuario
     def setPassword(password)
         raise InvalidParameterException.new("'password' é nil") if(password.nil?)
-        this.password = password
+        @password = password
     end
 
     # Obtem a quantidade de creditos do usuario
     # @return Quantidade de creditos do usuario
     def getCredit
-        return @credit
+        return @credit.to_f
     end
 
     # Atualiza a quantidade de creditos do usuario
@@ -63,6 +63,6 @@ class UserInfo
     private 
     def cryptPassword(password)
         raise InvalidParameterException.new("'password' é nil") if(password.nil?)
-        return password.reverse();
+        return "HASH#{password.reverse()}000"
     end
 end

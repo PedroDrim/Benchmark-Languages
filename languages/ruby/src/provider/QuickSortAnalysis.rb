@@ -19,7 +19,7 @@ class QuickSortAnalysis
 
         quickSort(0, @arrayUserInfo.length - 1)
 
-        return @arrayUserInfo;
+        return @arrayUserInfo
     end
 
     private

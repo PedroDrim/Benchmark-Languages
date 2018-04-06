@@ -57,7 +57,7 @@ class BenchmarkMeasure
         startTime = @benchMap[startSym.to_sym]
         endTime = @benchMap[endSym.to_sym]
         
-        return (endTime - startTime) * format;
+        return (endTime - startTime) * format
     end
 
     # Resultado de todas as capturas de estado
@@ -69,12 +69,12 @@ class BenchmarkMeasure
         mapResult = Hash.new
 
         @benchMap.each do |key, value|
-            tag = key.to_s.split("_")[0];
-            time = self.resultByTag(tag, format);
+            tag = key.to_s.split("_")[0]
+            time = self.resultByTag(tag, format)
             mapResult[tag.to_sym] = time
         end
 
-        return mapResult;
+        return mapResult
     end
 
     # Exporta o resultado no formato de um arquivo

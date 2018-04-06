@@ -1,41 +1,67 @@
-# Criando uma classe "UserInfo"
+from src.model.exception.InvalidParameterException import InvalidParameterException
+
+# Informacoes do usuario
 class UserInfo:
 
-    # Definindo construtor público da classe
-    # user -> nome do usuário
-    # password -> senha da conta
-    # credit -> credito da conta
+    # Construtor publico da classe
+    # @param user Nome do usuario
+    # @param password Senha do usuario
+    # @param credit Quantidade de creditos do usuario
     def __init__(self, user, password, credit):
+
+        if(user == None):
+            raise InvalidParameterException("'user' é None")
+        
+        if(password == None):
+            raise InvalidParameterException("'password' é None")
+
+        if(credit == None):
+            raise InvalidParameterException("'credit' é None")
+
         self.__user = user
         self.__password = password
         self.__credit = credit
 
-    # Método getter de 'user'
+    # Obtem o nome do usuario
+    # @return Nome do usuario
     def getUser(self):
         return self.__user
 
-    # Método getter customizado de 'password'
+    # Atualiza o nome do usuario
+    # @param user Novo nome do usuario
+    def setUser(self, user):
+        if(user == None):
+            raise InvalidParameterException("'user' é None")
+        self.__user = user
+
+    # Obtem a senha do usuario criptografada
+    # @return Senha do usuario criptografada
     def getPassword(self):
         return self.__cryptPassword(self.__password)
 
-    # Método getter de 'credit'
-    def getCredit(self):
-        return self.__credit
-
-    # Método setter de 'user'
-    def setUser(self, user):
-        self.__user = user
-
-    # Método setter de 'password'
+    # Atualiza a senha do usuario
+    # @param password Nova senha do usuario
     def setPassword(self, password):
+        if(password == None):
+            raise InvalidParameterException("'password' é None")
         self.__password = password
 
-    # Método setter de 'credit'
+    # Obtem a quantidade de creditos do usuario
+    # @return Quantidade de creditos do usuario
+    def getCredit(self):
+        return float(self.__credit)
+
+    # Atualiza a quantidade de creditos do usuario
+    # @param credit Nova quantidade de creditos do usuario
     def setCredit(self, credit):
+        if(credit == None):
+            raise InvalidParameterException("'credit' é None")
         self.__credit = credit
 
-    # Método privado para encriptar senhas
-    # password -> senha a ser encriptada
-    # RETURN -> nova senha
+    # Metodo privado para encriptar a senha do usuario
+    # @param password Senha a ser encriptada
+    # @return Nova senha encriptada
     def __cryptPassword(self, password):
+        if(password == None):
+            raise InvalidParameterException("'password' é None")
         return "HASH" + password[::-1] + "000"
