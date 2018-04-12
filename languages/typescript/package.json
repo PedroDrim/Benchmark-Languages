@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/build/start.js",
+    "start": "node ./bin/build/start.js ./config.json",
     "build": "gulp clean-build && gulp",
     "reinstall": "npm cache verify && gulp clean-modules && npm install"
   },

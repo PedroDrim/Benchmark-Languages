@@ -9,7 +9,7 @@ object main {
 
   def main(args: Array[String]): Unit = {
 
-    val configFile = "config.properties"
+    val configFile = args{0}
     val properties = loadProperties(configFile)
 
     val input = properties.getProperty("INPUT_FILENAME")

@@ -1,4 +1,1 @@
-{
-    "INPUT_FILENAME": "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/outputs/errorclass/output/inputclass_1000.csv",
-    "OUTPUT_FILENAME": "benchmark.json"
-}
+{"INPUT_FILENAME":"/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/outputs/errorclass/analysis/tmp/userInfoList_9000.csv","OUTPUT_FILENAME":"benchmark.json"}

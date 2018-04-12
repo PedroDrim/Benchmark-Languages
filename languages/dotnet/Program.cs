@@ -10,47 +10,47 @@ namespace experimento {
 
         static void Main(string[] args) {
 
-            Dictionary<string, string> configuration = getConfiguration("./app.config");
+            Dictionary<string, string> configuration = getConfiguration(args[0]);
             
-            string input = configuration["input"];
-            string output = configuration["output"];
+            string input = configuration["INPUT_FILENAME"];
+            string output = configuration["OUTPUT_FILENAME"];
 
-        BenchmarkOutput benchmark = new BenchmarkMeasure();
+            BenchmarkOutput benchmark = new BenchmarkMeasure();
 
-        TableAnalysis<double[]> summaryAnalysis = new SummaryAnalysis();
-        TableAnalysis<List<UserInfo>> bubbleSortAnalysis = new BubbleSortAnalysis();
-        TableAnalysis<List<UserInfo>> quickSortAnalysis = new QuickSortAnalysis();
-        TableAnalysis<List<UserInfo>> languageSortAnalysis = new LanguageSortAnalysis();
+            TableAnalysis<double[]> summaryAnalysis = new SummaryAnalysis();
+            TableAnalysis<List<UserInfo>> bubbleSortAnalysis = new BubbleSortAnalysis();
+            TableAnalysis<List<UserInfo>> quickSortAnalysis = new QuickSortAnalysis();
+            TableAnalysis<List<UserInfo>> languageSortAnalysis = new LanguageSortAnalysis();
 
-        //==================================================
-        // Leitura dos dados
-        benchmark.start("Read");
-        TableReader tableReader = new TableReader(input);
-        List<UserInfo> list = tableReader.read();
-        benchmark.end("Read");
-        //==================================================
-        // Analise dos dados (Summary)
-        benchmark.start("SummaryAnalyse");
-        double[] summary = (double[]) summaryAnalysis.analysis(list);
-        benchmark.end("SummaryAnalyse");
-        //==================================================
-        // Analise dos dados (Bubble)
-        benchmark.start("BubbleAnalyse");
-        List<UserInfo> bubble = (List<UserInfo>) bubbleSortAnalysis.analysis(list);
-        benchmark.end("BubbleAnalyse");
-        //==================================================
-        // Analise dos dados (Quick)
-        benchmark.start("QuickAnalyse");
-        List<UserInfo> quick = (List<UserInfo>) quickSortAnalysis.analysis(list);
-        benchmark.end("QuickAnalyse");
-        //==================================================
-        // Analise dos dados (Language)
-        benchmark.start("LanguageAnalyse");
-        List<UserInfo> lang = (List<UserInfo>) languageSortAnalysis.analysis(list);
-        benchmark.end("LanguageAnalyse");
-        //==================================================
+            //==================================================
+            // Leitura dos dados
+            benchmark.start("Read");
+            TableReader tableReader = new TableReader(input);
+            List<UserInfo> list = tableReader.read();
+            benchmark.end("Read");
+            //==================================================
+            // Analise dos dados (Summary)
+            benchmark.start("SummaryAnalyse");
+            double[] summary = (double[]) summaryAnalysis.analysis(list);
+            benchmark.end("SummaryAnalyse");
+            //==================================================
+            // Analise dos dados (Bubble)
+            benchmark.start("BubbleAnalyse");
+            List<UserInfo> bubble = (List<UserInfo>) bubbleSortAnalysis.analysis(list);
+            benchmark.end("BubbleAnalyse");
+            //==================================================
+            // Analise dos dados (Quick)
+            benchmark.start("QuickAnalyse");
+            List<UserInfo> quick = (List<UserInfo>) quickSortAnalysis.analysis(list);
+            benchmark.end("QuickAnalyse");
+            //==================================================
+            // Analise dos dados (Language)
+            benchmark.start("LanguageAnalyse");
+            List<UserInfo> lang = (List<UserInfo>) languageSortAnalysis.analysis(list);
+            benchmark.end("LanguageAnalyse");
+            //==================================================
 
-        benchmark.export(output, TimeFormat.MILISSEGUNDOS);
+            benchmark.export(output, TimeFormat.MILISSEGUNDOS);
         }
 
         static Dictionary<string, string> getConfiguration(string fileName) {
@@ -60,7 +60,7 @@ namespace experimento {
             
             string line;
             while((line = file.ReadLine()) != null) {  
-                string[] values = line.Split(":");
+                string[] values = line.Split("=");
                 string key = values[0].Trim();
                 string val = values[1].Trim();
                 appConfig.Add(key, val);

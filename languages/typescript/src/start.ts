@@ -16,7 +16,7 @@ export class Start {
 
     public constructor() {
 
-        let configFile = "./config.json";
+        let configFile = process.argv[2];
         let properties = require(configFile);
 
         let input: string = properties.INPUT_FILENAME;

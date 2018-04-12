@@ -8,4 +8,3 @@
 /home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/obj/Debug/netcoreapp2.0/dotnet.AssemblyInfo.cs
 /home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/obj/Debug/netcoreapp2.0/dotnet.dll
 /home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/obj/Debug/netcoreapp2.0/dotnet.pdb
-/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet/bin/Debug/netcoreapp2.0/dotnet.dll.config

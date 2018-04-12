@@ -9,7 +9,8 @@ import java.io.FileInputStream
 
 fun main(args: Array<String>) {
 
-    val configFile = "config.properties"
+    if (args.isEmpty()) throw InvalidParameterException("Parametros iniciais nao encontrados")
+    val configFile = args[0]
     val properties = loadProperties(configFile)
 
     val input = properties.getProperty("INPUT_FILENAME")

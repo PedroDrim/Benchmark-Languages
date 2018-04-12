@@ -11,12 +11,12 @@ from src.model.TimeFormat import TimeFormat
 from src.model.exception.InvalidParameterException import InvalidParameterException
 
 import json
+import sys
 
 class Start:
 
-    def __init__(self):
+    def __init__(self, configFile):
 
-        configFile = "./config.json"
         properties = self.__getConfig(configFile)
 
         bInput = properties["INPUT_FILENAME"]
@@ -67,4 +67,4 @@ class Start:
         obj = json.loads(serializedJson)
         return obj
 
-Start()
+Start(sys.argv[1])

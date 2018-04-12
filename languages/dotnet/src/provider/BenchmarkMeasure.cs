@@ -101,7 +101,7 @@ namespace experimento.src.model {
             Dictionary<string, double> mapResult = this.result(format);
             string jsonString = JsonConvert.SerializeObject(mapResult);
             
-            Console.WriteLine(jsonString);
+            File.WriteAllText(fileName, jsonString);
         }
     }
 }

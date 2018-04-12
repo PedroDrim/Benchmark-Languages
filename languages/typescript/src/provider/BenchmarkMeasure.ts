@@ -23,8 +23,6 @@ export class BenchmarkMeasure implements BenchmarkOutput {
      */
     private END_MARK: string = "_E";
 
-    private date: Date;
-
     /**
      * Mapa de estados
      */
@@ -35,7 +33,6 @@ export class BenchmarkMeasure implements BenchmarkOutput {
      */
     constructor() {
         this.benchMap = new Map();
-        this.date = new Date();
     }
 
     /**
@@ -45,7 +42,7 @@ export class BenchmarkMeasure implements BenchmarkOutput {
     public start(tag: string): void {
         if(tag == null) throw new InvalidParameterException("'tag' é null");
 
-        let time: number = this.date.getTime();
+        let time: number = new Date().getTime();
         this.benchMap.set(tag + this.START_MARK, time);
     }
 
@@ -56,7 +53,7 @@ export class BenchmarkMeasure implements BenchmarkOutput {
     public end(tag: String): void {
         if(tag == null) throw new InvalidParameterException("'tag' é null");
 
-        let time: number = this.date.getTime();
+        let time: number = new Date().getTime();
         this.benchMap.set(tag + this.END_MARK, time);
     }
 
@@ -110,6 +107,7 @@ export class BenchmarkMeasure implements BenchmarkOutput {
         if(format == null) throw new InvalidParameterException("'format' é null");
 
         let mapResult: Map<string, number> = this.result(format);
+
         var serilizedString: string = "{";
 
         let size: number = mapResult.size;

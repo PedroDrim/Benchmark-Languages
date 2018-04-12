@@ -1,0 +1,50 @@
+{
+  "p1": {
+    "id" : "java",
+    "run" : "java -jar java.jar ./config.properties",
+    "directory" : "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/java/out/artifacts/benchJava_jar"
+  },
+  
+  "p2" : {
+    "id" : "kotlin",
+    "run" : "java -jar kotlin.jar ./config.properties",
+    "directory" : "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/kotlin/out/artifacts/benchKotlin_jar"
+  },
+  
+  "p3" : {
+    "id" : "scala",
+    "run" : "java -jar scala.jar ./config.properties",
+    "directory" : "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/scala/out/artifacts/benchScala_jar"
+  },
+  
+  "p4" : {
+    "id" : "dotnet",
+    "run" : "dotnet run ./config.properties",
+    "directory" : "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/dotnet"
+  },
+  
+  "p5" : {
+    "id" : "ruby",
+    "run" : "ruby start.rb ./config.json",
+    "directory" : "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/ruby"
+  },
+  
+  "p6" : {
+    "id" : "python3",
+    "run" : "python3 start.py ./config.json",
+    "directory" : "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/python3"
+  },
+  
+  "p7" : {
+    "id" : "typescript",
+    "run" : "node start.js ./config.json",
+    "directory" : "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/typescript/bin/build"
+  },
+  
+  "p8" : {
+    "id" : "R",
+    "run" : "Rscript start.R ./config.json ",
+    "directory" : "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/languages/R"
+  }
+  
+}

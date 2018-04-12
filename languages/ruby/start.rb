@@ -16,7 +16,7 @@ class Start
 
     def initialize
 
-        configFile = "./config.json"
+        configFile = ARGV[0]
         properties = self.getConfig(configFile)
 
         input = properties["INPUT_FILENAME"]
