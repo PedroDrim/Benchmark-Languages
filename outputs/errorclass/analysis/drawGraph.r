@@ -16,7 +16,7 @@ drawScatter = function(dt, meanCol, sdCol, variable) {
   return(p)
 }
 
-r = read.csv("LanguageResult.csv", sep = ",")
+r = read.csv("../output/LanguageResult.csv", sep = ",")
 
 for(i in unique(r$lang)) {
   rx = r[r$lang == i,]  
@@ -31,7 +31,7 @@ for(i in unique(r$lang)) {
     n = strsplit(sd.name[j], split = "\\.")[[1]][1]
     pl = drawScatter(rx, mean.name[j], sd.name[j], sprintf("%s data", n))  
     
-    png(filename = sprintf("./plots/%s_%s.png", i, n))
+    png(filename = sprintf("../output/plots/%s_%s.png", i, n))
     plot(pl)
     dev.off()
   }
