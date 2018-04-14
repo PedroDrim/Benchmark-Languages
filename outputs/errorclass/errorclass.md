@@ -27,7 +27,7 @@ Foram então medidos os tempos decorridos (em milisegundos) para a leitura e an�
 
 ### Resultados
 
-Após a execução dos códigos de forma automátizada, os resultados foram obtidos e após uma breve limpeza dos dados foi obtido a seguinte [tabela]().
+Após a execução dos códigos de forma automátizada, os resultados foram obtidos e após uma breve limpeza dos dados foi obtido a seguinte [tabela](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/errorclass/output/LanguageResult.csv).
 
 O script utilizado para a análise pode ser visualizado [aqui](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/inputclass/inputclass_graph.r).
 
@@ -35,58 +35,58 @@ Tabela esta que foi convertida em um gráfico do tipo **ScatterPlot**, com base 
 
 * Leitura dos dados:
 
-![ScatterPlot 'Read data' em dotnet]()
-![ScatterPlot 'Read data' em R]()
-![ScatterPlot 'Read data' em java]()
-![ScatterPlot 'Read data' em scala]()
-![ScatterPlot 'Read data' em kotlin]()
-![ScatterPlot 'Read data' em python3]()
-![ScatterPlot 'Read data' em ruby]()
-![ScatterPlot 'Read data' em typescript]()
+![ScatterPlot 'Read data' em dotnet](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/dotnet_Read.png)
+![ScatterPlot 'Read data' em R](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/R_Read.png)
+![ScatterPlot 'Read data' em java](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/java_Read.png)
+![ScatterPlot 'Read data' em scala](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/scala_Read.png)
+![ScatterPlot 'Read data' em kotlin](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/kotlin_Read.png)
+![ScatterPlot 'Read data' em python3](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/python3_Read.png)
+![ScatterPlot 'Read data' em ruby](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/ruby_Read.png)
+![ScatterPlot 'Read data' em typescript](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/typescript_Read.png)
 
 * Ordenação por bubblesort:
 
-![ScatterPlot 'bubble sort' em dotnet]()
-![ScatterPlot 'bubble sort' em R]()
-![ScatterPlot 'bubble sort' em java]()
-![ScatterPlot 'bubble sort' em scala]()
-![ScatterPlot 'bubble sort' em kotlin]()
-![ScatterPlot 'bubble sort' em python3]()
-![ScatterPlot 'bubble sort' em ruby]()
-![ScatterPlot 'bubble sort' em typescript]()
+![ScatterPlot 'bubble sort' em dotnet](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/dotnet_BubbleAnalyse.png)
+![ScatterPlot 'bubble sort' em R](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/R_BubbleAnalyse.png)
+![ScatterPlot 'bubble sort' em java](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/java_BubbleAnalyse.png)
+![ScatterPlot 'bubble sort' em scala](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/scala_BubbleAnalyse.png)
+![ScatterPlot 'bubble sort' em kotlin](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/kotlin_BubbleAnalyse.png)
+![ScatterPlot 'bubble sort' em python3](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/python3_BubbleAnalyse.png)
+![ScatterPlot 'bubble sort' em ruby](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/ruby_BubbleAnalyse.png)
+![ScatterPlot 'bubble sort' em typescript](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/typescript_BubbleAnalyse.png)
 
 * Ordenação por quicksort:
 
-![ScatterPlot 'quick sort' em dotnet]()
-![ScatterPlot 'quick sort' em R]()
-![ScatterPlot 'quick sort' em java]()
-![ScatterPlot 'quick sort' em scala]()
-![ScatterPlot 'quick sort' em kotlin]()
-![ScatterPlot 'quick sort' em python3]()
-![ScatterPlot 'quick sort' em ruby]()
-![ScatterPlot 'quick sort' em typescript]()
+![ScatterPlot 'quick sort' em dotnet](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/dotnet_QuickAnalyse.png)
+![ScatterPlot 'quick sort' em R](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/R_QuickAnalyse.png)
+![ScatterPlot 'quick sort' em java](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/java_QuickAnalyse.png)
+![ScatterPlot 'quick sort' em scala](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/scala_QuickAnalyse.png)
+![ScatterPlot 'quick sort' em kotlin](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/kotlin_QuickAnalyse.png)
+![ScatterPlot 'quick sort' em python3](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/python3_QuickAnalyse.png)
+![ScatterPlot 'quick sort' em ruby](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/ruby_QuickAnalyse.png)
+![ScatterPlot 'quick sort' em typescript](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/typescript_QuickAnalyse.png)
 
 * Ordenação pela linguagem:
 
-![ScatterPlot 'language sort' em dotnet]()
-![ScatterPlot 'language sort' em R]()
-![ScatterPlot 'language sort' em java]()
-![ScatterPlot 'language sort' em scala]()
-![ScatterPlot 'language sort' em kotlin]()
-![ScatterPlot 'language sort' em python3]()
-![ScatterPlot 'language sort' em ruby]()
-![ScatterPlot 'language sort' em typescript]()
+![ScatterPlot 'language sort' em dotnet](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/dotnet_LanguageAnalyse.png)
+![ScatterPlot 'language sort' em R](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/R_LanguageAnalyse.png)
+![ScatterPlot 'language sort' em java](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/java_LanguageAnalyse.png)
+![ScatterPlot 'language sort' em scala](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/scala_LanguageAnalyse.png)
+![ScatterPlot 'language sort' em kotlin](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/kotlin_LanguageAnalyse.png)
+![ScatterPlot 'language sort' em python3](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/python3_LanguageAnalyse.png)
+![ScatterPlot 'language sort' em ruby](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/ruby_LanguageAnalyse.png)
+![ScatterPlot 'language sort' em typescript](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/typescript_LanguageAnalyse.png)
 
 * Valores máximo, mínimo e média:
 
-![ScatterPlot 'summary' em dotnet]()
-![ScatterPlot 'summary' em R]()
-![ScatterPlot 'summary' em java]()
-![ScatterPlot 'summary' em scala]()
-![ScatterPlot 'summary' em kotlin]()
-![ScatterPlot 'summary' em python3]()
-![ScatterPlot 'summary' em ruby]()
-![ScatterPlot 'summary' em typescript]()
+![ScatterPlot 'summary' em dotnet](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/dotnet_SummaryAnalyse.png)
+![ScatterPlot 'summary' em R](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/R_SummaryAnalyse.png)
+![ScatterPlot 'summary' em java](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/java_SummaryAnalyse.png)
+![ScatterPlot 'summary' em scala](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/scala_SummaryAnalyse.png)
+![ScatterPlot 'summary' em kotlin](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/kotlin_SummaryAnalyse.png)
+![ScatterPlot 'summary' em python3](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/python3_SummaryAnalyse.png)
+![ScatterPlot 'summary' em ruby](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/ruby_SummaryAnalyse.png)
+![ScatterPlot 'summary' em typescript](https://raw.githubusercontent.com/PedroDrim/Benchmark-Languages/master/outputs/errorclass/output/plots/typescript_SummaryAnalyse.png)
 
 ### Premissas
 
