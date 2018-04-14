@@ -28,3 +28,4 @@ Esta seção é a mais divertida (na minha opinião), pois nela descrevo os expe
 |-----------------|----------|----------------------------------|
 | [simpleclass](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/simpleclass/simpleclass.md) | Estudar a criação de classes simples | Análise por média e exibição por Barplot |
 | [inputclass](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/inputclass/inputclass.md) | Estudar a leitura de arquivos e interfaces | Análise por média e exibição por Barplot estacado |
+| [erroclass](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/errorclass/errorclass.md) | Estudar o tratamento de excessões | Análise por média com desvio padrão e exibição de ScatterPlot |
