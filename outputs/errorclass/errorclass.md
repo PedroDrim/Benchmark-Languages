@@ -29,8 +29,6 @@ Foram então medidos os tempos decorridos (em milisegundos) para a leitura e an�
 
 Após a execução dos códigos de forma automátizada, os resultados foram obtidos e após uma breve limpeza dos dados foi obtido a seguinte [tabela](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/errorclass/output/LanguageResult.csv).
 
-O script utilizado para a análise pode ser visualizado [aqui](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/inputclass/inputclass_graph.r).
-
 Tabela esta que foi convertida em um gráfico do tipo **ScatterPlot**, com base no tamanho das tabelas utilizadas nos experimentos, por meio da biblioteca ggplot2 do R.
 
 * Leitura dos dados:
