@@ -9,7 +9,7 @@ drawScatter = function(dt, meanCol, sdCol, variable) {
     geom_point(position=pd, size=3, shape=21, fill="white") + # 21 is filled circle
     xlab("Line ammount") +
     ylab(sprintf("%s Time (ms)", variable)) +
-    ggtitle(sprintf("Analysis for %s in %s",variable, unique(r$lang))) +
+    ggtitle(sprintf("Analysis for %s in %s",variable, unique(dt$lang))) +
     expand_limits(y=0) +                        # Expand y range
     theme_bw()
   
