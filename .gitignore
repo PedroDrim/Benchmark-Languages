@@ -1,23 +1,22 @@
 # Python3
-Languages/python3/*/__pycache__
+Languages/python3/*/__pycache__/
 
 # R
-Languages/R/bin/functions.Rc
-Languages/R/bin/UserInfo.Rc
+Languages/R/bin/
 
 # Kotlin
-Languages/kotlin/out
+Languages/kotlin/out/
 
 # Java
-Languages/java/out
+Languages/java/out/
 
 # Scala
-Languages/scala/out
+Languages/scala/out/
 
 # Dotnet
-Languages/dotnet/bin
-Languages/dotnet/obj
+Languages/dotnet/bin/
+Languages/dotnet/obj/
 
 # Typescript
-Languages/typescript/node_modules
-Languages/typescript/bin/build
+Languages/typescript/node_modules/
+Languages/typescript/bin/build/
