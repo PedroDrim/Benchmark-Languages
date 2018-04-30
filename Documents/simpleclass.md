@@ -12,6 +12,14 @@ A classe **UserInfo** possui atributos acessáveis por meios de **getters** e **
 
 Cada diretório de Linguagem, possui um arquivo responsável por inicializar o **experimento individual** chamado **Bench.sh** que encapsula os comandos de execução em cada linguagem, tais como: *java*, *rscript*, *python*, *ruby* etc.
 
+### Execução
+
+1. Clone o respositório com  `git clone -b simpleclass https://github.com/PedroDrim/Benchmark-Languages`.
+2. Execute o experimento `Rscript Analysis/analysis.R`.
+3. Vá pegar um café :coffee: enquanto aguarda o resultado.
+
+O script utilizado para a execução completa do experimento pode ser visualizado [aqui](../Analysis/analysis.R?raw=true).
+
 ### Análise
 
 Para a análise, foi-se planejado 3 (três) etapas, conforme o diagrama UML abaixo:  
@@ -33,8 +41,6 @@ Para a análise desses dados foi-se utilizado as seguintes técnicas:
 | Regressão linear | Estimar o comportamento dos resultados obtidos. |
 
  Os resultados foram exibidos em um gráfico do tipo **ScatterPlot** por meio da biblioteca ggplot2 do R.
-
-O script utilizado para a análise pode ser visualizado [aqui](../Analysis/analysis.R?raw=true).
 
 ### Resultados Obtidos
 
