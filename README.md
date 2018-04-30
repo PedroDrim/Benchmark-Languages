@@ -7,7 +7,7 @@ O objetivo deste repositório é estudar o comportamento, estrutura e o desempen
 No momento, as seguintes linguagens de programação estão sendo estudadas simultaneamente:
 
 | Linguagem | IDE utilizada |
-|-----------||---------------|
+|-----------|---------------|
 | Java | Intellij (JVM) |
 | Scala | Intellij (JVM) |
 | Kotlin | Intellij (JVM) |
