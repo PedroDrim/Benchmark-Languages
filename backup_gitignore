@@ -1,5 +1,9 @@
 # git rm -r --cached .
 
+# Analysis
+Analysis/bin/*
+Analysis//*
+
 #============================================
 
 # Python3
@@ -7,7 +11,7 @@ Languages/python3/__pycache__/
 Languages/python3/src/model/__pycache__/
 
 # R
-Languages/R/bin/
+Languages/R/bin/*
 
 # Kotlin
 Languages/kotlin/out/
