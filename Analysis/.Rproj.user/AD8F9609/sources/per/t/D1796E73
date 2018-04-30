@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1524763042592.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "28675191",
+    "id" : "D1796E73",
+    "lastKnownWriteTime" : 1524780342,
+    "last_content_update" : 1524780342619,
+    "path" : "~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Analysis/src/Analyser.R",
+    "project_path" : "src/Analyser.R",
+    "properties" : {
+        "cursorPosition" : "1,13",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
