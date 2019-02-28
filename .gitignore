@@ -29,3 +29,4 @@ Languages/dotnet/obj/
 # Typescript
 Languages/typescript/node_modules/
 Languages/typescript/bin/build/
+.Rproj.user

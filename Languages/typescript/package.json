@@ -9,6 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/node": "^9.6.42",
     "del": "^3.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",

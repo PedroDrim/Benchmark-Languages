@@ -28,6 +28,7 @@ Para a análise, foi-se planejado 3 (três) etapas, conforme o diagrama UML abai
 
 | Etapas | Arquivo | Função |
 |--------|---------|--------|
+| Pré    | ExperimentCreator.R | Gerar as entradas necessárias para a execução do experimento. |
 | 1     | Reader.R | Executar os arquivos **Bench.sh** e tratar as saídas obtidas na forma de uma tabela. |
 | 2   | Analyser.R | Analisar a tabela obtida na etapa **1** para retornar a tabela tratada. |
 | 3    | Plotter.R | Gera os graficos para exibir os resultados obtidos. |
@@ -54,8 +55,9 @@ Para a análise desses dados foi-se utilizado as seguintes técnicas:
 |Python3|![Python3 Result](annex/images/result/Plot_SimpleClass_python3.png?raw=true)|
 |R|![R Result](annex/images/result/Plot_SimpleClass_R.png?raw=true)|
 |Typescript|![Typescript Result](annex/images/result/Plot_SimpleClass_typescript.png?raw=true)|
+|Golang|![Golang Result](annex/images/result/Plot_SimpleClass_golang.png?raw=true)|
 
 ### Premissas
 
 1. Há uma possibilidade dos resultados obtidos não serem verídicos, pois cada resultado foi obtido dentro da propria linguagem testada.
-2. Há uma possibilidade de que as funções padrões do sistema operacional influenciaram no tempo de execução dos experimentos, o que explica os elevados desvios padrões.
+2. Há uma possibilidade de que as funções padrões do sistema operacional influenciaram no tempo de execução dos experimentos, o que pode explicar elevados desvios padrões.

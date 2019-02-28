@@ -11,11 +11,12 @@ No momento, as seguintes linguagens de programação estão sendo estudadas simu
 | Java | Intellij (JVM) |
 | Scala | Intellij (JVM) |
 | Kotlin | Intellij (JVM) |
-| C# | Visual Studio Code |
 | R | Rstudio |
+| C# | Visual Studio Code |
 | Ruby | Visual Studio Code |
 | Python3 | Visual Studio Code |
 | Typescript | Visual Studio Code |
+| Golang | Visual Studio Code |
 
 ### Experimentos
 

@@ -1,6 +1,7 @@
 # Importando bibioteca para construção de gráficos
 require(ggplot2)
 
+#====================================================
 # Função para analisar os resultados dos experimentos
 plotData = function(result, name_prefix) {
   
@@ -27,3 +28,4 @@ plotData = function(result, name_prefix) {
     dev.off()
   }
 }
+#====================================================
