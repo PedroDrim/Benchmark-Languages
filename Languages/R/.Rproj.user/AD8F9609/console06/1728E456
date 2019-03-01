@@ -1,101 +1,0 @@
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m rs[K[KRscript  c[Ks
-src/     start.R  
-]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript ss
-src/     start.R  
-]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript sstart.R 
-Carregando pacotes exigidos: compiler
-Note: nenhuma definição de função global visível para 'convertArgs' 
-Note: nenhuma definição de função global visível para 'UserInfo.new' 
-Note: nenhuma associação visível para variável global 'tamanho' 
-salvando para o arquivo "./bin/functions.Rc" ... pronto
-salvando para o arquivo "./bin/UserInfo.Rc" ... pronto
-Parametros inválidos.]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript sstart.R [A]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m npm run
-build && npm start[A]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript
-[10Pstart.R 
-Carregando pacotes exigidos: compiler
-Note: nenhuma definição de função global visível para 'convertArgs' 
-Note: nenhuma definição de função global visível para 'UserInfo.new' 
-Note: nenhuma associação visível para variável global 'tamanho' 
-salvando para o arquivo "./bin/functions.Rc" ... pronto
-salvando para o arquivo "./bin/UserInfo.Rc" ... pronto
-Parametros inválidos.
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript sstart.R [A]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m npm run
-build && npm start[A]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript
-[10Pstart.R 0
-Carregando pacotes exigidos: compiler
-Note: nenhuma definição de função global visível para 'convertArgs' 
-Note: nenhuma definição de função global visível para 'UserInfo.new' 
-Note: nenhuma associação visível para variável global 'tamanho' 
-salvando para o arquivo "./bin/functions.Rc" ... pronto
-salvando para o arquivo "./bin/UserInfo.Rc" ... pronto
-Error in if (line <= 0) { : argumento tem comprimento zero
-Calls: start -> convertArgs
-Execução interrompida
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript sstart.R 0
-Carregando pacotes exigidos: compiler
-Note: nenhuma definição de função global visível para 'convertArgs' 
-Note: nenhuma definição de função global visível para 'UserInfo.new' 
-Note: nenhuma associação visível para variável global 'tamanho' 
-salvando para o arquivo "./bin/functions.Rc" ... pronto
-salvando para o arquivo "./bin/UserInfo.Rc" ... pronto
-Error in if (line <= 0) { : argumento tem comprimento zero
-Calls: start -> convertArgs
-Execução interrompida
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript sstart.R 0
-Carregando pacotes exigidos: compiler
-Note: nenhuma definição de função global visível para 'convertArgs' 
-Note: nenhuma definição de função global visível para 'UserInfo.new' 
-Note: nenhuma associação visível para variável global 'tamanho' 
-salvando para o arquivo "./bin/functions.Rc" ... pronto
-salvando para o arquivo "./bin/UserInfo.Rc" ... pronto
-[1] "0"
-Error in if (line <= 0) { : argumento tem comprimento zero
-Calls: start -> convertArgs
-Execução interrompida
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m args = c ("0)
-bash: erro de sintaxe próximo do `token' não esperado `('
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m args = c(("0)")
-bash: erro de sintaxe próximo do `token' não esperado `('
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m args = c(("0")[1P)[A]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript start.R 0
-Carregando pacotes exigidos: compiler
-Note: nenhuma definição de função global visível para 'convertArgs' 
-Note: nenhuma definição de função global visível para 'UserInfo.new' 
-Note: nenhuma associação visível para variável global 'tamanho' 
-salvando para o arquivo "./bin/functions.Rc" ... pronto
-salvando para o arquivo "./bin/UserInfo.Rc" ... pronto
-Quantidade de linhas menor que 1.
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript sstart.R 0[K100000
-Carregando pacotes exigidos: compiler
-Note: nenhuma definição de função global visível para 'convertArgs' 
-Note: nenhuma definição de função global visível para 'UserInfo.new' 
-Note: nenhuma associação visível para variável global 'tamanho' 
-salvando para o arquivo "./bin/functions.Rc" ... pronto
-salvando para o arquivo "./bin/UserInfo.Rc" ... pronto
-Error in sprintf("[OK]Tamanho: %s\n", tamanho) : 
-  objeto 'tamanho' não encontrado
-Calls: start -> cat -> sprintf
-Execução interrompida
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript sstart.R 100000
-Carregando pacotes exigidos: compiler
-Note: nenhuma definição de função global visível para 'convertArgs' 
-Note: nenhuma definição de função global visível para 'UserInfo.new' 
-salvando para o arquivo "./bin/functions.Rc" ... pronto
-salvando para o arquivo "./bin/UserInfo.Rc" ... pronto
-[OK]Tamanho: 1e+05
-[OK]Tempo: 3.732 ms [OK]Tempo: 0.028 ms [OK]Tempo: 3.761 ms [OK]Tempo: 0 ms [OK]Tempo: 0 ms]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript sstart.R 100000
-Carregando pacotes exigidos: compiler
-Note: nenhuma definição de função global visível para 'convertArgs' 
-Note: nenhuma definição de função global visível para 'UserInfo.new' 
-salvando para o arquivo "./bin/functions.Rc" ... pronto
-salvando para o arquivo "./bin/UserInfo.Rc" ... pronto
-[OK]Tamanho: 1e+05
-[OK]Tempo: 3775 ms
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m Rscript sstart.R 1000000
-Carregando pacotes exigidos: compiler
-Note: nenhuma definição de função global visível para 'convertArgs' 
-Note: nenhuma definição de função global visível para 'UserInfo.new' 
-salvando para o arquivo "./bin/functions.Rc" ... pronto
-salvando para o arquivo "./bin/UserInfo.Rc" ... pronto
-[OK]Tamanho: 1e+06
-[OK]Tempo: 44207 ms
-]0;/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R]0;pedro@pedro-Aspire-E5-574 ~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R[01;32mpedro@pedro-Aspire-E5-574[00m [01;34m~/MEGA/MEGAsync/Repositorio_Git/Benchmark-Languages/Languages/R $[00m 
