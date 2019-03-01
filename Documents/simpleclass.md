@@ -61,4 +61,8 @@ Para a análise desses dados foi-se utilizado as seguintes técnicas:
 ### Premissas
 
 1. Há uma possibilidade dos resultados obtidos não serem verídicos, pois cada resultado foi obtido dentro da propria linguagem testada.
+<<<<<<< HEAD
 2. Há uma possibilidade de que as funções padrões do sistema operacional influenciaram no tempo de execução dos experimentos, o que pode explicar e65levados desvios padrões.
+=======
+2. Há uma possibilidade de que as funções padrões do sistema operacional influenciaram no tempo de execução dos experimentos, o que pode explicar elevados desvios padrões.
+>>>>>>> a32646a0ec54e138e989d0a7f1778ce1f79227dd

@@ -8,6 +8,7 @@ Os experimentos deste repositório não possuem os arquivos de build com o objet
 
 No momento, as seguintes linguagens de programação estão sendo estudadas simultaneamente:
 
+<<<<<<< HEAD
 | Linguagem | IDE utilizada | Compilação |
 |-----------|---------------|------------|
 | Java | Intellij (JVM) | [Criação de pacotes com Intellij](https://www.jetbrains.com/help/idea/packaging-a-module-into-a-jar-file.html) |
@@ -19,6 +20,19 @@ No momento, as seguintes linguagens de programação estão sendo estudadas simu
 | Python3 | Visual Studio Code | - |
 | Typescript | Visual Studio Code | `npm install && npm run build` |
 | Golang | Visual Studio Code | - |
+=======
+| Linguagem | IDE utilizada |
+|-----------|---------------|
+| Java | Intellij (JVM) |
+| Scala | Intellij (JVM) |
+| Kotlin | Intellij (JVM) |
+| R | Rstudio |
+| C# | Visual Studio Code |
+| Ruby | Visual Studio Code |
+| Python3 | Visual Studio Code |
+| Typescript | Visual Studio Code |
+| Golang | Visual Studio Code |
+>>>>>>> a32646a0ec54e138e989d0a7f1778ce1f79227dd
 
 ### Experimentos
 
