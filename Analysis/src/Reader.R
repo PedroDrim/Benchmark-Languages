@@ -1,3 +1,4 @@
+#====================================================
 # Função para executar os experimentos
 readData = function(langDirectory, outputTag = "\\[OK\\]", shellFile = "Bench.sh", times = 10, paramArray = "1000") {
   if(times <= 0) times = 1
@@ -63,3 +64,4 @@ readData = function(langDirectory, outputTag = "\\[OK\\]", shellFile = "Bench.sh
   
   return(result)
 }
+#====================================================

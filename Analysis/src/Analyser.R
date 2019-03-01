@@ -1,6 +1,7 @@
 # Importando bibioteca para paralelização de tarefas
 require(plyr)
 
+#====================================================
 # Função para analisar os resultados dos experimentos
 analyseData = function(result, timeScale = "ms") {
 
@@ -37,4 +38,4 @@ analyseData = function(result, timeScale = "ms") {
   
   return(a)
 }
-
+#====================================================

@@ -4,18 +4,21 @@
 
 O objetivo deste repositório é estudar o comportamento, estrutura e o desempenho de diversas linguagens.
 
+Os experimentos deste repositório não possuem os arquivos de build com o objetivo de reduzir o tamanho dos commits.
+
 No momento, as seguintes linguagens de programação estão sendo estudadas simultaneamente:
 
-| Linguagem | IDE utilizada |
-|-----------|---------------|
-| Java | Intellij (JVM) |
-| Scala | Intellij (JVM) |
-| Kotlin | Intellij (JVM) |
-| C# | Visual Studio Code |
-| R | Rstudio |
-| Ruby | Visual Studio Code |
-| Python3 | Visual Studio Code |
-| Typescript | Visual Studio Code |
+| Linguagem | IDE utilizada | Compilação |
+|-----------|---------------|------------|
+| Java | Intellij (JVM) | [Criação de pacotes com Intellij](https://www.jetbrains.com/help/idea/packaging-a-module-into-a-jar-file.html) |
+| Scala | Intellij (JVM) | [Criação de pacotes com Intellij](https://www.jetbrains.com/help/idea/packaging-a-module-into-a-jar-file.html) |
+| Kotlin | Intellij (JVM) | [Criação de pacotes com Intellij](https://www.jetbrains.com/help/idea/packaging-a-module-into-a-jar-file.html) |
+| R | Rstudio | - |
+| C# | Visual Studio Code | - |
+| Ruby | Visual Studio Code | - |
+| Python3 | Visual Studio Code | - |
+| Typescript | Visual Studio Code | `npm install && npm run build` |
+| Golang | Visual Studio Code | - |
 
 ### Experimentos
 

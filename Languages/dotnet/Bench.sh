@@ -1,2 +1,2 @@
 #!/bin/bash
-dotnet run $1
+dotnet build && dotnet run $1

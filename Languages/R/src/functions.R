@@ -4,7 +4,7 @@ start = function(args) {
   
   inicio = proc.time()
   
-  list = sapply(1:size, function(index){
+  list = lapply(1:size, function(index){
     user = sprintf("user%s", index)
     password = sprintf("password%s", index)
     

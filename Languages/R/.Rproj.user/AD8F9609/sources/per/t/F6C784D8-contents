@@ -6,12 +6,10 @@ UserInfo.new = function(user, password) {
   crypt = rev(crypt)
   crypt = sprintf("HASH%s000", paste(crypt, collapse = "") )
   
-  res = matrix(NA, ncol = 2, nrow = 1)
-  res[1] = user
-  res[2] = crypt
+  res = list()
+  res$user = user
+  res$password = crypt
   
-  colnames(res) = c("user", "password")
-  
-  class(res) = c("matrix", "UserInfo")
+  class(res) = c("UserInfo")
   return(res)
 }
