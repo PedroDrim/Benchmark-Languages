@@ -15,11 +15,12 @@ func main() {
     var tamanho int = getParam(os.Args)
     
     antes := time.Now().UnixNano()
-    lista := make([]int, tamanho)
+    lista := make([]userInfo.UserInfo, tamanho)
     
-    for index := 0; index < len(lista); index++ {
-        index := strconv.Itoa(index)
-        userInfo.New("user" + index, "password" + index)
+    for index, _ := range lista {
+        id := strconv.Itoa(index)
+        user := userInfo.New("user" + id, "password" + id)
+        lista[index] = user
     }
     
     depois := time.Now().UnixNano()

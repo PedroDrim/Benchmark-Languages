@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GOPATH=$HOME/MEGA/MEGAsync/Repositorio_Git/Benchmark-branches/simpleClass/Benchmark-Languages/Languages/golang
+export GOPATH=$(pwd)
 
 go build start.go
 ./start $1

@@ -8,7 +8,7 @@ start = function(args) {
     user = sprintf("user%s", index)
     password = sprintf("password%s", index)
     
-    return(UserInfo.new(user, password))
+    return(UserInfo$new(user, password))
   })
   
   time = proc.time() - inicio

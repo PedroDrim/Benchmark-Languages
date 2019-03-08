@@ -1,14 +1,13 @@
 # Importando bibliotecas
 require(compiler)
+require(R6)
 
 # Compilando arquivos .R em binários .Rc
 cmpfile("./src/functions.R","./bin/functions.Rc")
 cmpfile("./src/model/UserInfo.R","./bin/UserInfo.Rc")
-<<<<<<< HEAD
 
-dir.create("./bin")
-=======
->>>>>>> a32646a0ec54e138e989d0a7f1778ce1f79227dd
+if(!dir.exists("./bin"))
+  dir.create("./bin")
 
 # Lendo binários .Rc
 loadcmp("./bin/functions.Rc")
