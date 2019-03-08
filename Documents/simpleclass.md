@@ -23,7 +23,7 @@ O script utilizado para a execução completa do experimento pode ser visualizad
 
 ### Análise
 
-Para a análise, foi-se planejado 3 (três) etapas, conforme o diagrama UML abaixo:  
+Para a análise, foi-se planejado 4 (quatro) etapas, conforme o diagrama UML abaixo:  
 
 ![UML Analysis](annex/images/analysis.png?raw=true)
 
