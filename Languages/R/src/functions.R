@@ -4,13 +4,11 @@ start = function(args) {
   
   inicio = proc.time()
   
-  list = lapply(1:size, function(index){
-    user = sprintf("user%s", index)
-    password = sprintf("password%s", index)
-    
-    return(UserInfo.new(user, password))
-  })
+  user = sprintf("user%s", 1:size)
+  password = sprintf("password%s", 1:size)
   
+  list = UserInfo$new(user, password)
+
   time = proc.time() - inicio
   time = time[3] * 1000
   

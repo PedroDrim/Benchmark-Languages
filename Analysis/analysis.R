@@ -17,8 +17,8 @@ loadcmp("bin/Plotter.Rc")
 # Inicio dos experimentos 
 array_size = createExperiment(1:9)
 
-directory = "/home/pedro/MEGA/MEGAsync/Repositorio_Git/Benchmark-branches/simpleClass/Benchmark-Languages/Languages"
-benchDirs = list.files(directory, full.names = T)
+directory = "../Languages"
+benchDirs = list.dirs(directory, full.names = T, recursive = F)
 
 # Realizando Benchmark
 result_matrix = lapply(benchDirs, readData, paramArray = array_size, outputTag = "\\[OK\\]") 

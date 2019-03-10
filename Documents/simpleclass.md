@@ -23,7 +23,7 @@ O script utilizado para a execução completa do experimento pode ser visualizad
 
 ### Análise
 
-Para a análise, foi-se planejado 3 (três) etapas, conforme o diagrama UML abaixo:  
+Para a análise, foi-se planejado 4 (quatro) etapas, conforme o diagrama UML abaixo:  
 
 ![UML Analysis](annex/images/analysis.png?raw=true)
 
@@ -61,8 +61,4 @@ Para a análise desses dados foi-se utilizado as seguintes técnicas:
 ### Premissas
 
 1. Há uma possibilidade dos resultados obtidos não serem verídicos, pois cada resultado foi obtido dentro da propria linguagem testada.
-<<<<<<< HEAD
-2. Há uma possibilidade de que as funções padrões do sistema operacional influenciaram no tempo de execução dos experimentos, o que pode explicar e65levados desvios padrões.
-=======
 2. Há uma possibilidade de que as funções padrões do sistema operacional influenciaram no tempo de execução dos experimentos, o que pode explicar elevados desvios padrões.
->>>>>>> a32646a0ec54e138e989d0a7f1778ce1f79227dd
