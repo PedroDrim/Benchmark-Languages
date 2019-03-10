@@ -4,18 +4,9 @@ start = function(args) {
   
   inicio = proc.time()
   
-<<<<<<< HEAD
   user = sprintf("user%s", 1:size)
   password = sprintf("password%s", 1:size)
-=======
-  list = lapply(1:size, function(index){
-    user = sprintf("user%s", index)
-    password = sprintf("password%s", index)
-    
-    return(UserInfo$new(user, password))
-  })
->>>>>>> ac0fd804d29290d391c2d367cd09d8994d27c44c
-  
+
   list = UserInfo$new(user, password)
 
   time = proc.time() - inicio
