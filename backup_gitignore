@@ -1,0 +1,32 @@
+# git rm -r --cached .
+
+# Analysis
+Analysis/bin/*
+Analysis//*
+
+#============================================
+
+# Python3
+Languages/python3/__pycache__/
+Languages/python3/src/model/__pycache__/
+
+# R
+Languages/R/bin/*
+
+# Kotlin
+Languages/kotlin/out/
+
+# Java
+Languages/java/out/
+
+# Scala
+Languages/scala/out/
+
+# Dotnet
+Languages/dotnet/bin/
+Languages/dotnet/obj/
+
+# Typescript
+Languages/typescript/node_modules/
+Languages/typescript/bin/build/
+
