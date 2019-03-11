@@ -54,17 +54,17 @@ Para a análise desses dados foi-se utilizado as seguintes técnicas:
 
 ### Resultados Obtidos
 
-| Linguagem | Gráfico |
-|-----------|---------|
-|Java|![Java Result](annex/images/result/Plot_InputClass_java.png?raw=true)|
-|Scala|![Scala Result](annex/images/result/Plot_InputClass_scala.png?raw=true)|
-|Kotlin|![Kotlin Result](annex/images/result/Plot_InputClass_kotlin.png?raw=true)|
-|Dotnet|![Dotnet Result](annex/images/result/Plot_InputClass_dotnet.png?raw=true)|
-|Ruby|![Ruby Result](annex/images/result/Plot_InputClass_ruby.png?raw=true)|
-|Python3|![Python3 Result](annex/images/result/Plot_InputClass_python3.png?raw=true)|
-|R|![R Result](annex/images/result/Plot_InputClass_R.png?raw=true)|
-|Typescript|![Typescript Result](annex/images/result/Plot_InputClass_typescript.png?raw=true)|
-|Golang|![Golang Result](annex/images/result/Plot_SimpleClass_golang.png?raw=true)|
+| Linguagem | Leitura | Analise |
+|-----------|---------|---------|
+|Java|![Java Result](annex/images/result/Plot_InputClass_leitura_java.png?raw=true)|![Java Result](annex/images/result/Plot_InputClass_analise_java.png?raw=true)|
+|Scala|![Scala Result](annex/images/result/Plot_InputClass_leitura_scala.png?raw=true)|![Scala Result](annex/images/result/Plot_InputClass_analise_scala.png?raw=true)|
+|Kotlin|![Kotlin Result](annex/images/result/Plot_InputClass_leitura_kotlin.png?raw=true)|![Kotlin Result](annex/images/result/Plot_InputClass_analise_kotlin.png?raw=true)|
+|Dotnet|![Dotnet Result](annex/images/result/Plot_InputClass_leitura_dotnet.png?raw=true)|![Dotnet Result](annex/images/result/Plot_InputClass_analise_dotnet.png?raw=true)|
+|Ruby|![Ruby Result](annex/images/result/Plot_InputClass_leitura_ruby.png?raw=true)|![Ruby Result](annex/images/result/Plot_InputClass_analise_ruby.png?raw=true)|
+|Python3|![Python3 Result](annex/images/result/Plot_InputClass_leitura_python3.png?raw=true)|![Python3 Result](annex/images/result/Plot_InputClass_analise_python3.png?raw=true)|
+|R|![R Result](annex/images/result/Plot_InputClass_leitura_R.png?raw=true)|![R Result](annex/images/result/Plot_InputClass_analise_R.png?raw=true)|
+|Typescript|![Typescript Result](annex/images/result/Plot_InputClass_leitura_typescript.png?raw=true)|![Typescript Result](annex/images/result/Plot_InputClass_analise_typescript.png?raw=true)|
+|Golang|![Golang Result](annex/images/result/Plot_SimpleClass_leitura_golang.png?raw=true)||Golang|![Golang Result](annex/images/result/Plot_SimpleClass_analise_golang.png?raw=true)|
 
 ### Premissas
 
