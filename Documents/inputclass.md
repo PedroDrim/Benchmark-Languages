@@ -64,7 +64,7 @@ Para a análise desses dados foi-se utilizado as seguintes técnicas:
 |Python3|![Python3 Result](annex/images/result/Plot_InputClass_leitura_python3.png?raw=true)|![Python3 Result](annex/images/result/Plot_InputClass_analise_python3.png?raw=true)|
 |R|![R Result](annex/images/result/Plot_InputClass_leitura_R.png?raw=true)|![R Result](annex/images/result/Plot_InputClass_analise_R.png?raw=true)|
 |Typescript|![Typescript Result](annex/images/result/Plot_InputClass_leitura_typescript.png?raw=true)|![Typescript Result](annex/images/result/Plot_InputClass_analise_typescript.png?raw=true)|
-|Golang|![Golang Result](annex/images/result/Plot_SimpleClass_leitura_golang.png?raw=true)||Golang|![Golang Result](annex/images/result/Plot_SimpleClass_analise_golang.png?raw=true)|
+|Golang|![Golang Result](annex/images/result/Plot_InputClass_leitura_golang.png?raw=true)||Golang|![Golang Result](annex/images/result/Plot_InputClass_analise_golang.png?raw=true)|
 
 ### Premissas
 
