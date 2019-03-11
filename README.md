@@ -27,4 +27,4 @@ Esta seção é a mais divertida (na minha opinião), pois nela descrevo os expe
 | Nome (com link) | Objetivo | Técnicas utilizadas para análise |
 |-----------------|----------|----------------------------------|
 | [simpleclass](https://github.com/PedroDrim/Benchmark-Languages/blob/simpleclass/Documents/simpleclass.md) | Estudar a criação de classes simples | Scatterplot de média com desvio padrão e regressão linear simples.|
-| [inputclass](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/inputclass/inputclass.md) | Estudar a leitura de arquivos e interfaces | Scatterplot de média com desvio padrão e regressão linear simples.|
+| [inputclass](https://github.com/PedroDrim/Benchmark-Languages/blob/inputclass/Documents/inputclass.md) | Estudar a leitura de arquivos e interfaces | Scatterplot de média com desvio padrão e regressão linear simples.|
