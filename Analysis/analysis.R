@@ -1,6 +1,9 @@
 # Importando biblioteca para compilação
 require(compiler)
 
+if(!dir.exists("./bin"))
+  dir.create("./bin")
+
 # Compilando arquivos
 cmpfile("src/ExperimentCreator.R", "bin/ExperimentCreator.Rc")
 cmpfile("src/Reader.R", "bin/Reader.Rc")
