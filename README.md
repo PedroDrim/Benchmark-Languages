@@ -13,7 +13,7 @@ No momento, as seguintes linguagens de programação estão sendo estudadas simu
 | Java | Intellij (JVM) | [Criação de pacotes com Intellij](https://www.jetbrains.com/help/idea/packaging-a-module-into-a-jar-file.html) |
 | Scala | Intellij (JVM) | [Criação de pacotes com Intellij](https://www.jetbrains.com/help/idea/packaging-a-module-into-a-jar-file.html) |
 | Kotlin | Intellij (JVM) | [Criação de pacotes com Intellij](https://www.jetbrains.com/help/idea/packaging-a-module-into-a-jar-file.html) |
-| R | Rstudio | - |
+| R | Visual Studio Code | - |
 | C# | Visual Studio Code | - |
 | Ruby | Visual Studio Code | - |
 | Python3 | Visual Studio Code | - |

@@ -1,2 +1,2 @@
 #!/bin/bash
-node ./bin/build/start.js $1
+npm run start $1
