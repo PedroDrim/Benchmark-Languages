@@ -13,17 +13,18 @@ class Start:
         tamanho = self.__getParam(param)
         antes = time.time()
 
-        list = []
-
-        for index in range(tamanho):
-            user = "".join(["user", str(index)])
-            password = "".join(["password", str(index)])
-            list.append(UserInfo(user, password))
-
+        list = map(self.__createUserInfo, range(tamanho))            
         res = (time.time() - antes) * 1000.0
 
         print("[OK]Tamanho: " + str(tamanho))
         print("[OK]Tempo: " + str(res) + " ms")
+
+    # Metodo responsavel por criar uma informacao de usuario
+    def __createUserInfo(self, index):
+        user = "".join(["user", str(index)])
+        password = "".join(["password", str(index)])
+        return UserInfo(user, password)
+
 
     # Método para captura e tratamento dos parametros obtidos via console
     # @param codes Lista de parametros obtidos via console
